@@ -1,0 +1,121 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  videos        Video[]
+  apiKeys       ApiKey[]
+
+  @@map("users")
+}
+
+model ApiKey {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  lastUsed  DateTime?
+
+  @@map("api_keys")
+}
+
+model Video {
+  id                String      @id @default(cuid())
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Original video info
+  originalFileName  String
+  originalFileSize  Int
+  originalUrl       String
+  originalDuration  Float?
+
+  // Processed video info
+  processedUrl      String?
+  processedDuration Float?
+  processedFileSize Int?
+
+  // Video metadata
+  title             String
+  description       String?
+  status            VideoStatus @default(UPLOADED)
+
+  // AI processing results
+  transcription     String?     @db.Text
+  scenes            Json?
+  enhancements      Json?
+  qualityScore      Float?
+
+  // Processing info
+  processingStartedAt DateTime?
+  processingCompletedAt DateTime?
+  errorMessage      String?     @db.Text
+
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  jobs              ProcessingJob[]
+
+  @@map("videos")
+  @@index([userId])
+  @@index([status])
+}
+
+enum VideoStatus {
+  UPLOADED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model ProcessingJob {
+  id          String      @id @default(cuid())
+  videoId     String
+  video       Video       @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  type        JobType
+  status      JobStatus   @default(PENDING)
+  progress    Float       @default(0)
+
+  input       Json?
+  output      Json?
+  errorMessage String?    @db.Text
+
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("processing_jobs")
+  @@index([videoId])
+  @@index([status])
+}
+
+enum JobType {
+  TRANSCRIPTION
+  SCENE_DETECTION
+  AUDIO_ENHANCEMENT
+  VIDEO_ENHANCEMENT
+  EXPORT
+}
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}

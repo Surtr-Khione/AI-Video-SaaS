@@ -1,0 +1,38 @@
+{
+  "name": "@ai-video-saas/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ai-video-saas/database": "workspace:*",
+    "@ai-video-saas/types": "workspace:*",
+    "express": "^4.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "bullmq": "^5.28.2",
+    "ioredis": "^5.4.2",
+    "openai": "^4.77.3",
+    "zod": "^3.23.8",
+    "winston": "^3.17.0",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.4.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
