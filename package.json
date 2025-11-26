@@ -1,0 +1,36 @@
+{
+  "name": "ai-video-saas-prompt-library",
+  "version": "1.0.0",
+  "description": "World's best product demo prompt library for AI video generation",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node utils/prompt-validator.js",
+    "search": "node utils/search.js",
+    "list": "node utils/list-prompts.js",
+    "test": "node utils/test-schema.js"
+  },
+  "keywords": [
+    "ai-video",
+    "prompts",
+    "product-demos",
+    "saas",
+    "marketing",
+    "video-generation",
+    "storytelling",
+    "sales",
+    "content-creation"
+  ],
+  "author": "AI Video SaaS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Surtr-Khione/AI-Video-SaaS.git"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "glob": "^10.3.10"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

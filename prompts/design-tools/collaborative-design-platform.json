@@ -1,0 +1,62 @@
+{
+  "id": "design-collaborative-platform-fbtd",
+  "name": "Collaborative Design Platform - Feature-Benefit-Tie Down",
+  "category": "design-tools",
+  "subcategory": "UI/UX Design",
+  "framework": "feature-benefit-tiedown",
+  "style": {
+    "tone": "creative",
+    "pacing": "dynamic",
+    "videoType": ["marketing", "feature-highlight"]
+  },
+  "prompt": {
+    "main": "Create a vibrant 60-second design tool demo using Feature-Benefit-Tie Down framework for designers and product teams. Show 5 features: (1) Real-time multiplayer design—multiple designers editing same file simultaneously like Google Docs. Benefit: Ship faster together. Tie-down: 'Collaboration beats silos, right?' (2) Auto-layout and responsive design—components adapt to all screen sizes automatically. Benefit: Design once, works everywhere. Tie-down: 'Responsive design shouldn't take hours, should it?' (3) Developer handoff with live code export—generates production-ready React/SwiftUI code. Benefit: Perfect implementation, zero guesswork. Tie-down: 'Accurate handoff means faster shipping, doesn't it?' (4) Design system management—shared components, tokens, and guidelines enforced automatically. Benefit: Brand consistency effortlessly. Tie-down: 'Consistency builds trust, right?' (5) Version history and branching—explore variations without fear, rollback anytime. Benefit: Creative freedom with safety net. Tie-down: 'Experimentation drives innovation, doesn't it?' Use colorful, creative aesthetic with smooth animations, beautiful UI examples, and happy designers collaborating.",
+    "opening": "Split screen chaos: Designer in Figma, developer in VS Code, PM in Slack asking 'What's the spacing?' Email with design files (v7_final_FINAL_v2.fig), developer implementing with wrong colors, PM frustrated by inconsistency. Text: 'Design to development shouldn't be this broken.' Transition to unified platform.",
+    "middle": "FEATURE 1 - Real-Time Multiplayer (10s):\nVisual: Two designers (different locations) working on same mobile app design. One designs header, other designs footer—simultaneously. Cursors labeled with names. Changes appear instantly for both. Voice chat integrated. PM jumps in, adds comment directly on design. All in real-time.\nVoiceover: 'Real-time multiplayer design means your entire team works together in one file—which means faster iteration and better collaboration—because shipping together beats working in silos, doesn't it?'\nOn-screen: '3 People · 1 Design · Real-Time'\nTie-down visual: Shipping speed graph accelerating\n\nFEATURE 2 - Auto-Layout & Responsive (10s):\nVisual: Designer creates mobile UI component. Switches view to tablet—component automatically adjusts. Switches to desktop—layout reflows perfectly. Changes button text from 'Go' to 'Get Started'—component auto-resizes to fit. Constraints and padding automatically maintained.\nVoiceover: 'Auto-layout makes components responsive across every screen size automatically—so you design once and it works everywhere—because responsive design shouldn't take hours of manual adjustment, should it?'\nOn-screen: '1 Design · Every Screen · Auto-Adapted'\nTie-down visual: Time saved counter\n\nFEATURE 3 - Developer Handoff (10s):\nVisual: Designer finishes UI. Clicks 'Share with Developers'. Developer opens link, sees perfect spec: spacing (16px, 24px, 32px), colors (hex codes), typography (SF Pro, 16pt, 700 weight). Clicks component, gets production-ready React code. Copies, pastes into IDE—works perfectly. Side-by-side: Design on left, implemented app on right—pixel perfect match.\nVoiceover: 'One-click handoff generates production-ready code with perfect specifications—eliminating guesswork and back-and-forth—and accurate handoff means faster shipping with fewer bugs, doesn't it?'\nOn-screen: 'Design → Code · Pixel Perfect · Zero Guesswork'\nTie-down visual: Developer and designer high-fiving\n\nFEATURE 4 - Design System (10s):\nVisual: Design system library showing components: buttons, inputs, cards, all variations. Designer drags 'Primary Button' into design—automatically uses correct brand colors, spacing, typography. Brand colors updated centrally (blue → purple)—watch as ALL designs using that color token update instantly across 47 files. Consistency enforced automatically.\nVoiceover: 'Centralized design systems keep every component, color, and style consistent across your entire product—which means brand consistency without manual checks—and consistency builds user trust and recognition, right?'\nOn-screen: 'One System · 47 Files · Perfect Consistency'\nTie-down visual: Brand guidelines checkmark\n\nFEATURE 5 - Version History (10s):\nVisual: Designer trying bold experimental layout. Creates branch: 'Experiment: New Homepage'. Makes dramatic changes. Stakeholder doesn't like it. No problem—returns to main branch. Tries different approach in new branch: 'Experiment 2'. This one works! Merges to main. Timeline shows all versions: Can restore any previous version instantly. Safe to experiment.\nVoiceover: 'Git-style version control and branching let you experiment freely, knowing you can always roll back—giving creative freedom with a safety net—and experimentation drives breakthrough innovation, doesn't it?'\nOn-screen: 'Branch · Experiment · Merge · Rollback'\nTie-down visual: Innovation lightbulb",
+    "closing": "Montage: Designers collaborating in real-time, responsive layouts flowing, developers implementing perfectly, design system keeping everything consistent, bold experiments being tried. Product ships: Beautiful, consistent, pixel-perfect across all devices. Team celebrating launch. Metrics: 'Design-to-Code: 70% Faster', 'Consistency: 100%', 'Designer Satisfaction: 95%'. End card: '[Platform] - Design Teams Love Us'.",
+    "visualGuidelines": [
+      "Vibrant, creative color palette matching design tool aesthetic",
+      "Show beautiful UI designs: Modern apps, clean interfaces, trendy aesthetics",
+      "Smooth, fluid animations at 60fps",
+      "Multiple cursors and avatars showing collaboration",
+      "Side-by-side design vs code implementation comparisons",
+      "Component libraries looking organized and accessible",
+      "Diverse team: Different roles, backgrounds, locations",
+      "Clean, modern UI for the platform itself",
+      "Use popular design patterns: cards, gradients, shadows",
+      "Typography: Modern sans-serif, good hierarchy"
+    ]
+  },
+  "metadata": {
+    "targetAudience": ["UI/UX Designers", "Product Designers", "Design Teams", "Frontend Developers", "Product Managers"],
+    "keyFeatures": [
+      {"feature": "Real-Time Multiplayer", "benefit": "Entire team collaborates in one file simultaneously", "highlight": true},
+      {"feature": "Auto-Layout & Responsive", "benefit": "Components adapt to all screens automatically", "highlight": true},
+      {"feature": "Code Export", "benefit": "Generates production-ready React/SwiftUI code", "highlight": true},
+      {"feature": "Design Systems", "benefit": "Centralized components ensure brand consistency", "highlight": false},
+      {"feature": "Version Control", "benefit": "Experiment safely, rollback anytime", "highlight": false}
+    ],
+    "duration": "60s",
+    "platforms": ["youtube", "linkedin", "instagram", "website"],
+    "painPoints": ["Design-developer handoff friction", "Inconsistent brand implementation", "Slow iteration cycles", "Version control chaos", "Siloed design work", "Manual responsive design"],
+    "callToAction": "Start Free Trial",
+    "tags": ["design-tools", "UI-design", "UX", "collaboration", "design-systems", "feature-benefit-tiedown", "creative"],
+    "difficulty": "beginner",
+    "estimatedCost": "medium"
+  },
+  "examples": {
+    "inspirations": [
+      {"company": "Figma", "videoTitle": "Figma Overview", "url": "https://figma.com", "whatMakesItGreat": "Shows multiplayer collaboration beautifully, smooth animations, design-focused aesthetic"},
+      {"company": "Framer", "videoTitle": "Framer Product Demo", "url": "https://framer.com", "whatMakesItGreat": "Emphasizes code export and responsive design, shows real websites"},
+      {"company": "Sketch", "videoTitle": "Sketch Features", "url": "https://sketch.com", "whatMakesItGreat": "Clean demonstration of design system features, professional tone"}
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 60,
+    "colorGrading": "Vibrant, saturated colors with modern aesthetic"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

@@ -1,0 +1,105 @@
+{
+  "id": "mobile-fitness-tracker-prs",
+  "name": "AI Fitness Tracking App - Problem-Reaction-Solution",
+  "category": "mobile-apps",
+  "subcategory": "Health & Fitness",
+  "framework": "problem-reaction-solution",
+  "style": {
+    "tone": "energetic",
+    "pacing": "fast",
+    "videoType": ["marketing", "sales"]
+  },
+  "prompt": {
+    "main": "Create an energetic 45-second vertical (9:16) mobile app demo for an AI-powered fitness tracking app using Problem-Reaction-Solution framework. Problem (10s): User frustrated with generic workout plans that don't work, manually logging exercises, inconsistent results, abandoned New Year's resolutions. Reaction (5s): Show wasted gym memberships, motivation declining, fitness goals unmet. Solution (30s): AI personal trainer that adapts workouts daily based on progress, auto-tracks exercises using phone sensors, provides real-time form correction, celebrates wins, and keeps motivation high. Show actual app interface, smooth animations, energetic user working out confidently. Use vibrant colors, upbeat music, fast cuts, and motivational messaging. End with transformation: confident, strong user achieving their goals.",
+    "opening": "Open on cluttered phone home screen with 5 different fitness apps. User (tired, in gym clothes) opens generic workout app showing same boring routine. They half-heartedly do a few reps, looking unmotivated. Manually typing '10 push-ups' into notes app. Screen shows 'Streak: 3 days' then 'Streak broken'. Montage: Unused gym membership card, downloaded workout PDFs never opened, fitness tracker gathering dust. Text: 'Same old routine. Same old results.'",
+    "middle": "REACTION: Calendar showing ambitious January goals vs sad February reality. '15 lbs to lose' crossed out. Graph showing initial enthusiasm (Jan: 12 workouts) declining (Feb: 3 workouts, Mar: 0 workouts). Money wasted: $600 gym membership, $200 on unused equipment. User sitting on couch, looking at fitness influencers on Instagram, feeling defeated.\n\nSOLUTION: New app notification: 'Ready to try something that actually works?' User opens [App Name]. Beautiful onboarding: 'Tell us about you'—goals, fitness level, available time. AI analyzes: 'Building your personalized plan.'\n\nShow app features:\n1. AI Daily Workouts (7s): Each day shows different workout adapted to progress—harder as they improve, recovery days when needed. 'Today: Upper Body Strength (24 min)'\n\n2. Auto Exercise Tracking (6s): User starts workout. Phone camera uses AI to count reps automatically, correct form in real-time: 'Great depth on that squat!', tracks weight lifted via sensors\n\n3. Real-Time Coaching (5s): AI voice coach providing encouragement: '3 more reps, you've got this!', form tips: 'Keep core engaged', rest timers\n\n4. Progress Visualization (5s): Beautiful charts showing strength gains, body measurements changing, personal records broken, consistency streak building\n\n5. Smart Motivation (5s): Personalized encouragement based on patterns: 'You usually skip Friday workouts—let's break that pattern with a quick 15-minute session?', celebrates every win\n\nShow user transformation: Week 1 (struggling), Week 4 (getting stronger), Week 8 (confident, hitting PRs, visible results)",
+    "closing": "Same user, 8 weeks later: Confidently completing workout that would've been impossible before. App shows: 'New PR: 150 lb deadlift!', 'Streak: 47 days', 'Goal: Lost 12 lbs'. User smiles at phone, flexes. Friends comment: 'What's your secret?' Final shot: App dashboard showing complete transformation stats. End card: '[App] - Your AI Personal Trainer · Download Free'. Triumphant music.",
+    "visualGuidelines": [
+      "Vertical 9:16 format optimized for Instagram/TikTok",
+      "Show real phone interface, not mockups",
+      "Use energetic, fast-paced editing (0.5-2s per shot)",
+      "Vibrant brand colors: energetic orange, motivational blue, success green",
+      "Show diverse body types and fitness levels",
+      "Include satisfying UI animations: Rep counters, streak celebrations, progress bars filling",
+      "Before/after should be subtle and realistic (8 weeks, not extreme)",
+      "Music: Upbeat electronic with strong beat, builds energy",
+      "Text overlays: Large, bold, readable on mobile",
+      "Show app working in real environment (gym, home, park)"
+    ]
+  },
+  "metadata": {
+    "targetAudience": [
+      "Fitness beginners (18-45)",
+      "People who've failed with generic programs",
+      "Busy professionals wanting efficiency",
+      "Home workout enthusiasts",
+      "Gym-goers wanting better tracking"
+    ],
+    "keyFeatures": [
+      {
+        "feature": "AI-Personalized Workouts",
+        "benefit": "Every workout adapts to your progress—never boring, always challenging",
+        "highlight": true
+      },
+      {
+        "feature": "Automatic Exercise Tracking",
+        "benefit": "AI counts reps and corrects form using your camera—no manual logging",
+        "highlight": true
+      },
+      {
+        "feature": "Real-Time Voice Coaching",
+        "benefit": "Feels like having a personal trainer in your pocket",
+        "highlight": false
+      },
+      {
+        "feature": "Smart Motivation System",
+        "benefit": "AI knows when to push you and when to encourage rest",
+        "highlight": false
+      }
+    ],
+    "duration": "45s",
+    "platforms": ["instagram", "tiktok", "facebook", "youtube"],
+    "painPoints": [
+      "Generic workout plans that don't adapt",
+      "Manually logging exercises is tedious",
+      "Lack of personalization",
+      "Motivation drops after initial enthusiasm",
+      "Don't know if form is correct",
+      "Expensive personal trainers",
+      "Inconsistent results"
+    ],
+    "callToAction": "Download Free",
+    "tags": ["fitness", "health", "mobile-app", "AI", "personal-trainer", "workout-tracking", "vertical-video", "problem-reaction-solution"],
+    "difficulty": "beginner",
+    "estimatedCost": "low"
+  },
+  "examples": {
+    "inspirations": [
+      {
+        "company": "Peloton",
+        "videoTitle": "Peloton App Commercial",
+        "url": "https://www.onepeloton.com/app",
+        "whatMakesItGreat": "Shows transformation, energetic pacing, motivational messaging"
+      },
+      {
+        "company": "Fitbod",
+        "videoTitle": "Fitbod AI Workout Builder",
+        "url": "https://fitbod.me",
+        "whatMakesItGreat": "Emphasizes personalization, shows app UI clearly, real gym footage"
+      }
+    ],
+    "variations": [
+      "30s version: Focus only on AI personalization and auto-tracking",
+      "60s version: Add nutrition tracking, community features, integration with wearables",
+      "Niche versions: Yoga focus, Running focus, Strength training focus, Weight loss focus"
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "9:16",
+    "resolution": "1080p",
+    "fps": 60,
+    "colorGrading": "Vibrant and saturated, high energy, warm tones for human subjects"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

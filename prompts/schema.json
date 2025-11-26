@@ -1,0 +1,292 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Video Demo Prompt Schema",
+  "description": "Schema for software and product demo prompts with comprehensive metadata",
+  "type": "object",
+  "required": ["id", "name", "category", "prompt", "framework", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the prompt",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the demo prompt"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "saas",
+        "mobile-apps",
+        "developer-tools",
+        "ecommerce",
+        "ai-ml",
+        "design-tools",
+        "productivity",
+        "analytics",
+        "communication",
+        "automation"
+      ],
+      "description": "Primary category of the software being demoed"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Specific subcategory (e.g., 'CRM', 'Project Management', 'Video Editing')"
+    },
+    "framework": {
+      "type": "string",
+      "enum": [
+        "problem-reaction-solution",
+        "feature-benefit-tiedown",
+        "save-the-cat",
+        "hero-journey",
+        "before-after-bridge",
+        "aida"
+      ],
+      "description": "Storytelling framework used in the demo"
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "tone": {
+          "type": "string",
+          "enum": ["cinematic", "professional", "casual", "energetic", "minimalist", "luxury", "technical"],
+          "description": "Overall tone and aesthetic"
+        },
+        "pacing": {
+          "type": "string",
+          "enum": ["fast", "medium", "slow", "dynamic"],
+          "description": "Pacing of the video"
+        },
+        "videoType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["sales", "marketing", "educational", "onboarding", "feature-highlight", "brand"]
+          },
+          "description": "Type(s) of video this prompt is designed for"
+        }
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "required": ["main"],
+      "properties": {
+        "main": {
+          "type": "string",
+          "description": "Main prompt for AI video generation"
+        },
+        "opening": {
+          "type": "string",
+          "description": "Opening scene prompt"
+        },
+        "middle": {
+          "type": "string",
+          "description": "Middle/demonstration section prompt"
+        },
+        "closing": {
+          "type": "string",
+          "description": "Closing/call-to-action prompt"
+        },
+        "visualGuidelines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specific visual direction and style guidelines"
+        }
+      }
+    },
+    "script": {
+      "type": "object",
+      "properties": {
+        "storyboard": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scene": {
+                "type": "integer",
+                "description": "Scene number"
+              },
+              "duration": {
+                "type": "string",
+                "description": "Duration in seconds (e.g., '5s', '10-15s')"
+              },
+              "visual": {
+                "type": "string",
+                "description": "What viewers see on screen"
+              },
+              "voiceover": {
+                "type": "string",
+                "description": "Voiceover narration text"
+              },
+              "onScreen": {
+                "type": "string",
+                "description": "On-screen text or captions"
+              },
+              "music": {
+                "type": "string",
+                "description": "Background music/sound description"
+              },
+              "transition": {
+                "type": "string",
+                "description": "Transition to next scene"
+              }
+            }
+          }
+        },
+        "fullVoiceover": {
+          "type": "string",
+          "description": "Complete voiceover script"
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Alternative opening hooks to grab attention"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["targetAudience", "keyFeatures", "duration"],
+      "properties": {
+        "targetAudience": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Primary audience personas"
+        },
+        "keyFeatures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "type": "string",
+                "description": "Feature name"
+              },
+              "benefit": {
+                "type": "string",
+                "description": "User benefit"
+              },
+              "highlight": {
+                "type": "boolean",
+                "description": "Whether this is a primary highlight"
+              }
+            }
+          },
+          "description": "Features to showcase with benefits"
+        },
+        "duration": {
+          "type": "string",
+          "description": "Total video duration (e.g., '30s', '60s', '2min')"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["youtube", "instagram", "tiktok", "linkedin", "twitter", "facebook", "website", "sales-deck"]
+          },
+          "description": "Optimal platforms for this demo"
+        },
+        "painPoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Customer pain points addressed"
+        },
+        "callToAction": {
+          "type": "string",
+          "description": "Specific call to action"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Searchable tags"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "Production difficulty level"
+        },
+        "estimatedCost": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Estimated production cost"
+        }
+      }
+    },
+    "examples": {
+      "type": "object",
+      "properties": {
+        "inspirations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "company": {
+                "type": "string"
+              },
+              "videoTitle": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "whatMakesItGreat": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "Real-world examples that inspired this prompt"
+        },
+        "variations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Prompt variations for different use cases"
+        }
+      }
+    },
+    "technicalSpecs": {
+      "type": "object",
+      "properties": {
+        "aspectRatio": {
+          "type": "string",
+          "enum": ["16:9", "9:16", "1:1", "4:5"],
+          "description": "Recommended aspect ratio"
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Recommended resolution (e.g., '1080p', '4K')"
+        },
+        "fps": {
+          "type": "integer",
+          "description": "Frames per second"
+        },
+        "colorGrading": {
+          "type": "string",
+          "description": "Color grading style"
+        }
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "Prompt version number"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date",
+      "description": "Last update date (YYYY-MM-DD)"
+    }
+  }
+}

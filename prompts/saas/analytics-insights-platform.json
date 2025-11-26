@@ -1,0 +1,159 @@
+{
+  "id": "saas-analytics-insights-savethecat",
+  "name": "Analytics Insights Platform - Save the Cat",
+  "category": "saas",
+  "subcategory": "Analytics",
+  "framework": "save-the-cat",
+  "style": {
+    "tone": "cinematic",
+    "pacing": "medium",
+    "videoType": ["brand", "sales"]
+  },
+  "prompt": {
+    "main": "Create a cinematic 90-second product demo for an analytics platform following the Save the Cat story structure. Our hero is a data analyst drowning in spreadsheets and dashboards that don't answer business questions. Opening Image: Analyst late at night, surrounded by conflicting reports. Theme: 'Data should reveal truth, not create confusion.' Catalyst: CEO asks a simple question they can't answer. Break Into Act Two: Discovery of the analytics platform. Fun and Games (heart of demo): Show AI-powered insights, automated reporting, predictive analytics, collaborative dashboards, and natural language queries. Midpoint: First major insight discovered. Finale: Complete transformation showing confident data-driven decisions. Final Image: Mirror opening but transformed—analyst presenting insights confidently to leadership. Use warm color grading, smooth camera movements, emotional music that builds, and satisfying data visualizations.",
+    "opening": "Late evening office, warm desk lamp lighting. Data analyst (Jordan) surrounded by three monitors showing Excel spreadsheets, Tableau dashboards, and Google Analytics. Papers with handwritten notes and conflicting numbers. Coffee cup (third of the day). Clock shows 8:47 PM. Jordan's tired eyes scan between screens, trying to reconcile different data sources. Notebook shows question: 'Why did Q3 revenue drop 12%?' with multiple crossed-out theories.",
+    "middle": "SAVE THE CAT structure:\n\n1. THEME (8s): Jordan helps colleague troubleshoot a report, showing they're competent and caring despite the overwhelming tools. Voiceover: 'Good data analysts ask the right questions. Great tools help them find the answers.'\n\n2. SET-UP (12s): Montage of daily struggles: Morning standup where Jordan can't give clear metrics, pulling three different reports for same question, CFO asking 'Which numbers are correct?', building dashboard manually, running SQL queries, waiting for reports to load.\n\n3. CATALYST (6s): CEO Slack message: 'Quick question: What's our actual customer acquisition cost across all channels, and which ones are profitable?' Jordan stares. This should be simple but requires pulling data from 5 systems, Excel analysis, and manual calculations.\n\n4. DEBATE (5s): Jordan opens laptop at home late at night to start the analysis. Sees colleague's message: 'Try [Analytics Platform]—it saved me 10 hours last week.' Brief hesitation: 'Another tool?'\n\n5. BREAK INTO ACT TWO (5s): Jordan signs up. Clean onboarding: 'Connect your data sources.' Integrations light up: Google Analytics, Stripe, Salesforce, Ad platforms—all connect in minutes. Data flowing in.\n\n6. FUN AND GAMES (35s):\n   a) Natural Language Query (7s): Jordan types in plain English: 'What is our CAC by channel and which are profitable?' AI instantly generates analysis with visualizations.\n   \n   b) AI Insights (7s): Platform highlights: 'Instagram ads have 3x higher CAC than LinkedIn but convert 2x better long-term. Consider reallocating budget.' Insight Jordan would've missed.\n   \n   c) Automated Dashboards (7s): Pre-built dashboard for SaaS metrics: MRR, churn, LTV, CAC—all automatically calculated, real-time, beautiful visualizations.\n   \n   d) Predictive Analytics (7s): Machine learning model: 'Based on current trends, Q4 revenue will be $1.2M ± $50K (94% confidence). Early warning: Churn increasing in Enterprise segment.'\n   \n   e) Collaborative Features (7s): Jordan shares dashboard with CEO, CFO, and marketing team. Comments appear: 'This is exactly what I needed!' Scheduled reports set up for weekly automated delivery.\n\n7. MIDPOINT (5s): CEO responds: 'This is brilliant. Can you present this to the board?' Jordan realizes the platform isn't just saving time—it's elevating their impact.\n\n8. FINALE (12s): Boardroom presentation. Jordan confidently presents clear, visual insights. Board members nodding, asking strategic questions Jordan can answer instantly. CEO: 'Now this is data-driven decision making.' Decisions made: Reallocate $50K marketing budget, focus on Enterprise retention, expand Product B.",
+    "closing": "FINAL IMAGE (5s): Same desk, but morning light streaming in. Jordan arrives at 9 AM with coffee, calm and confident. Opens clean dashboard—all metrics green and updating in real-time. Slack message from CEO: 'Great presentation. How fast can we get Q4 projections?' Jordan smiles, types: 'Already in your inbox.' Mirror of opening scene but completely transformed. End card: '[Platform] - Turn Data Into Decisions' with CTA.",
+    "visualGuidelines": [
+      "Use Save the Cat emotional arc: Start dark/frustrated, build to bright/confident",
+      "Opening: Warm desk lamp, dark office, cooler tones, cluttered composition",
+      "Solution: Natural morning light, clean workspace, warmer tones, organized composition",
+      "Camera movements: Handheld/uncertain (opening) → Steady/confident (closing)",
+      "Data visualizations: Use satisfying animations—bars growing, charts updating smoothly",
+      "Show genuine emotion: Frustration, uncertainty, realization, confidence, triumph",
+      "Include human moments: Colleague support, CEO pressure, presentation nerves, victory",
+      "Color code insights: Blue for data, green for positive insights, amber for warnings",
+      "Typography: Clean, data-focused fonts, animated numbers counting",
+      "Transitions: Organic fades and dissolves, not jarring cuts"
+    ]
+  },
+  "script": {
+    "storyboard": [
+      {
+        "scene": 1,
+        "duration": "5s",
+        "visual": "Establishing shot: Office building at night, most windows dark, one light on. Cut to interior: Jordan at desk, three monitors, surrounded by printouts, notebook with crossed-out notes. Clock: 8:47 PM. Tired eyes, third coffee cup.",
+        "voiceover": "Jordan is great at asking questions. But finding answers? That's the hard part.",
+        "onScreen": "8:47 PM · Q3 Revenue Analysis · Day 4",
+        "music": "Contemplative piano, slightly melancholic",
+        "transition": "Slow push in on Jordan's face"
+      },
+      {
+        "scene": 2,
+        "duration": "3s",
+        "visual": "Close-up: Notebook showing 'Why did Q3 revenue drop 12%?' with multiple theories crossed out. Three different reports showing conflicting numbers: Excel says $847K, Tableau says $891K, Salesforce says $863K.",
+        "voiceover": "Three systems. Three different answers. Zero clarity.",
+        "onScreen": "Excel: $847K · Tableau: $891K · Salesforce: $863K",
+        "music": "Dissonant note",
+        "transition": "Zoom into conflicting numbers"
+      }
+    ],
+    "fullVoiceover": "Jordan is great at asking questions. But finding answers? That's the hard part. Three systems. Three different answers. Zero clarity. Good data analysts ask the right questions. Great tools help them find the answers. Every morning, the same routine: Build dashboards. Run queries. Reconcile data. Repeat. Then the message arrives: 'Quick question: What's our actual customer acquisition cost across all channels, and which ones are profitable?' Simple question. Five systems. Ten hours of work. Maybe there's a better way. Connect your data sources. All of them. In minutes. Now ask your question. In plain English. The platform shows you the answer. But it goes further. It shows you what you should ask next. Automated dashboards. No building required. Predictions, not just reports. Where you're heading, not just where you've been. Share it. Discuss it. Decide together. 'This is exactly what I needed.' The CEO's question? Answered in minutes, not days. The presentation? Confident, clear, compelling. Decisions made. Budget reallocated. Strategy adjusted. Same desk. Different feeling. Data doesn't create confusion anymore. It reveals truth. Turn data into decisions. Start free today.",
+    "hooks": [
+      "Your data team spends 60% of their time preparing reports instead of finding insights. Here's why.",
+      "What if you could ask your data questions in plain English and get instant answers?",
+      "The best companies aren't data-rich. They're insight-rich. Here's the difference.",
+      "We analyzed 1,000 data teams. The fastest ones have this in common.",
+      "Stop building dashboards. Start getting answers."
+    ]
+  },
+  "metadata": {
+    "targetAudience": [
+      "Data Analysts",
+      "Business Intelligence Teams",
+      "C-Suite Executives",
+      "Product Managers",
+      "Growth Teams",
+      "Data Scientists",
+      "SaaS Founders"
+    ],
+    "keyFeatures": [
+      {
+        "feature": "Natural Language Queries",
+        "benefit": "Ask questions in plain English, get instant visualized answers",
+        "highlight": true
+      },
+      {
+        "feature": "AI-Powered Insights",
+        "benefit": "Discover patterns and opportunities you'd otherwise miss",
+        "highlight": true
+      },
+      {
+        "feature": "Unified Data Integration",
+        "benefit": "All data sources connected, automatically reconciled",
+        "highlight": true
+      },
+      {
+        "feature": "Predictive Analytics",
+        "benefit": "See where you're heading, not just where you've been",
+        "highlight": true
+      },
+      {
+        "feature": "Collaborative Dashboards",
+        "benefit": "Share insights, discuss findings, make decisions together",
+        "highlight": false
+      }
+    ],
+    "duration": "90s",
+    "platforms": ["website", "youtube", "linkedin", "sales-deck"],
+    "painPoints": [
+      "Data scattered across multiple systems",
+      "Conflicting numbers from different sources",
+      "Hours spent building dashboards manually",
+      "Can't answer simple business questions quickly",
+      "Insights buried in spreadsheets",
+      "No predictive capabilities",
+      "Difficult to share and collaborate on data",
+      "Slow time-to-insight"
+    ],
+    "callToAction": "Start Free Trial",
+    "tags": [
+      "analytics",
+      "business-intelligence",
+      "data-visualization",
+      "AI",
+      "predictive-analytics",
+      "dashboards",
+      "save-the-cat",
+      "cinematic"
+    ],
+    "difficulty": "intermediate",
+    "estimatedCost": "medium"
+  },
+  "examples": {
+    "inspirations": [
+      {
+        "company": "Tableau",
+        "videoTitle": "Tableau Customer Stories",
+        "url": "https://www.tableau.com/solutions/customer",
+        "whatMakesItGreat": "Emotional storytelling, shows real transformation, hero's journey structure"
+      },
+      {
+        "company": "Mixpanel",
+        "videoTitle": "Mixpanel Product Tour",
+        "url": "https://mixpanel.com",
+        "whatMakesItGreat": "Clean data visualizations, focus on insights over features"
+      },
+      {
+        "company": "Looker",
+        "videoTitle": "Looker Demo",
+        "url": "https://looker.com",
+        "whatMakesItGreat": "Shows analyst perspective, collaborative features highlighted"
+      }
+    ],
+    "variations": [
+      "60-second version: Compress to core journey—problem, discovery, transformation",
+      "2-minute version: Add B-story about team collaboration, show multiple use cases",
+      "Industry-specific: E-commerce analytics, SaaS metrics, healthcare data",
+      "Role-specific: CEO version (strategic decisions), Analyst version (daily workflow), CFO version (financial insights)"
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 30,
+    "colorGrading": "Warm naturalistic tones, teal and orange separation, emotional color progression"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

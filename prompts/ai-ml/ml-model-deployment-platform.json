@@ -1,0 +1,53 @@
+{
+  "id": "aiml-model-deployment-prs",
+  "name": "ML Model Deployment Platform - Problem-Reaction-Solution",
+  "category": "ai-ml",
+  "subcategory": "MLOps",
+  "framework": "problem-reaction-solution",
+  "style": {
+    "tone": "technical",
+    "pacing": "medium",
+    "videoType": ["educational", "sales"]
+  },
+  "prompt": {
+    "main": "Create a 75-second MLOps platform demo using Problem-Reaction-Solution for data scientists and ML engineers. Problem (20s): Data scientist has trained amazing model in notebook, but deploying to production takes weeks of DevOps work. Models sitting in Jupyter notebooks, not serving predictions. Manual deployment scripts breaking. No monitoring once deployed. Reaction (10s): Show business impact—AI project ROI delayed, competitors shipping ML features faster, data science team frustrated spending time on infrastructure. Solution (45s): MLOps platform that deploys models from notebooks to production APIs in minutes. Show: One-click deployment from any framework (PyTorch, TensorFlow, scikit-learn), automatic scaling, built-in monitoring for model drift and performance, A/B testing multiple models, version control for models, automated retraining pipelines. End with data scientist shipping 5 models in production, business seeing ROI, ML team focused on innovation not infrastructure.",
+    "opening": "Data scientist (Alex) in Jupyter notebook, training ML model. Model accuracy: 94%. Celebration! Then reality: 'How do I deploy this?' Opens production deployment checklist: Docker container, Kubernetes config, API wrapper, load balancing, logging, monitoring, scaling rules—15 steps. Alex's smile fades. Cut to 2 weeks later: Still not in production. Model sitting idle in notebook while business waits.",
+    "middle": "PROBLEM: Montage of deployment pain: Writing custom Docker files, debugging Kubernetes YAML, setting up logging infrastructure, configuring auto-scaling, building API endpoints manually. Each step taking days. DevOps team overwhelmed. Models stuck in development limbo.\n\nREACTION: Business stakeholder meeting: 'The ML team trained this 6 weeks ago. Why isn't it live?' Revenue projections delayed. Competitor launches similar AI feature first. Data science team morale dropping—they became scientists to build models, not wrestle infrastructure. Metric: '70% of ML models never reach production.'\n\nSOLUTION: Discovery of MLOps platform. Alex uploads trained model file. Platform: 'Deploy to production?' Settings: Auto-scaling (10-1000 requests/sec), monitoring enabled, version 1.0. Click 'Deploy'. Watch as platform automatically: Containerizes model, provisions infrastructure, creates REST API, sets up monitoring dashboards, deploys to production. Time elapsed: 3 minutes. API endpoint ready: 'model.company.com/v1/predict'. Success! Features shown: Multi-framework support (works with any ML library), automatic scaling (handles traffic spikes), model drift detection (alerts when accuracy drops), A/B testing (compare model versions), automated retraining (triggers when drift detected), version control (rollback to previous versions instantly), cost optimization (scales to zero when not used). Alex deploys 4 more models same day. Business seeing ROI within week.",
+    "closing": "Transformation: Dashboard showing 5 models in production, serving 1.2M predictions daily, 99.9% uptime, automatic scaling handling peaks. Alex focused on improving models, not infrastructure. Business metrics: AI features driving 34% revenue increase. Same notebook, but now 'Deploy to Production' is just one click. End card: '[Platform] - ML Models to Production in Minutes'.",
+    "visualGuidelines": [
+      "Show real Jupyter notebooks and code",
+      "Use terminal/CLI aesthetic for technical credibility",
+      "Display actual model metrics (accuracy, latency, throughput)",
+      "Dark mode UI with syntax highlighting",
+      "Visualize model deployment pipeline as flowing diagram",
+      "Show monitoring dashboards with real-time metrics",
+      "Include Docker, Kubernetes, cloud provider logos for context",
+      "Use data visualization: Charts showing model performance, drift detection",
+      "Color code: Green for healthy models, amber for drift warnings, red for errors"
+    ]
+  },
+  "metadata": {
+    "targetAudience": ["Data Scientists", "ML Engineers", "AI/ML Teams", "Engineering Managers", "CTOs implementing AI"],
+    "keyFeatures": [
+      {"feature": "One-Click Deployment", "benefit": "Models to production in minutes, not weeks", "highlight": true},
+      {"feature": "Automatic Monitoring", "benefit": "Detect model drift and performance issues instantly", "highlight": true},
+      {"feature": "Multi-Framework Support", "benefit": "Deploy any model: PyTorch, TensorFlow, scikit-learn, XGBoost", "highlight": false},
+      {"feature": "A/B Testing", "benefit": "Test new model versions with live traffic safely", "highlight": false}
+    ],
+    "duration": "75s",
+    "platforms": ["youtube", "linkedin", "website", "ML-conferences"],
+    "painPoints": ["Models stuck in notebooks", "Deployment takes weeks", "No monitoring post-deployment", "DevOps bottleneck", "70% of models never reach production", "Infrastructure complexity"],
+    "callToAction": "Start Free Trial",
+    "tags": ["AI", "machine-learning", "MLOps", "deployment", "data-science", "problem-reaction-solution", "technical"],
+    "difficulty": "advanced",
+    "estimatedCost": "medium"
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 30,
+    "colorGrading": "Technical dark theme with blue and green accents"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

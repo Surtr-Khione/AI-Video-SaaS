@@ -1,0 +1,112 @@
+{
+  "id": "devtools-api-platform-fbtd",
+  "name": "API Development & Testing Platform - Feature-Benefit-Tie Down",
+  "category": "developer-tools",
+  "subcategory": "API Tools",
+  "framework": "feature-benefit-tiedown",
+  "style": {
+    "tone": "technical",
+    "pacing": "medium",
+    "videoType": ["educational", "sales"]
+  },
+  "prompt": {
+    "main": "Create a 60-second technical product demo for an API development and testing platform using Feature-Benefit-Tie Down framework. Target: developers and engineering teams. Show 4 core features with clear benefits and developer-focused tie-downs. (1) Collaborative API design with OpenAPI auto-generation—design APIs as a team, docs generate automatically. Benefit: No more doc/code drift. Tie-down: 'Accurate docs save hours of support, right?' (2) Automated testing across environments with AI-generated test cases. Benefit: Catch bugs before production. Tie-down: 'Prevention beats firefighting, doesn't it?' (3) Real-time API monitoring with intelligent alerts. Benefit: Know when things break, why they broke. Tie-down: 'Fast resolution keeps users happy, right?' (4) Developer portal auto-generation. Benefit: Beautiful docs and sandbox without manual work. Tie-down: 'Great DX means faster adoption, doesn't it?' Use dark mode UI, code syntax highlighting, terminal aesthetics, subtle animations, developer-friendly vibe.",
+    "opening": "Terminal window showing failed API request: '500 Internal Server Error'. Developer's frustrated sigh. Split screen: Writing code, updating docs manually, testing in Postman, checking logs in 3 different tabs, updating changelog. Text: 'Building APIs shouldn't be this hard.' Quick cut to clean, unified API platform interface.",
+    "middle": "FEATURE 1 - Collaborative API Design (12s):\nVisual: Team designing REST API endpoints in visual editor. OpenAPI spec generates in real-time. Another dev adds authentication requirements. Schema validation runs automatically. Export button generates complete documentation.\nVoiceover: 'Design your APIs collaboratively with visual editors and automatic OpenAPI spec generation—which means your documentation always matches your implementation—and accurate docs save your team hours of support questions, don't they?'\nOn-screen: 'Collaborative Design → Auto-Generated Docs → Zero Drift'\nTie-down visual: Support tickets graph declining\n\nFEATURE 2 - Automated Testing (12s):\nVisual: Developer writes one test. AI suggests 15 additional edge cases. All tests run across dev, staging, production environments simultaneously. Results dashboard shows: 47 tests passed, 2 failed in staging (caught before production!). Failed test shows exact request/response with diff highlighting.\nVoiceover: 'AI-powered test generation runs comprehensive tests across all environments—catching bugs before your users do—and prevention beats firefighting at 3 AM, doesn't it?'\nOn-screen: 'AI Test Generation → Multi-Environment → Catch Bugs Early'\nTie-down visual: Production incidents graph trending down\n\nFEATURE 3 - Real-Time Monitoring (12s):\nVisual: Live API dashboard showing request rates, latency, error rates. Sudden spike in 500 errors. Alert fires immediately: 'Database connection pool exhausted'. Distributed tracing shows exact request path where it failed. Error context includes recent deployments, infrastructure changes.\nVoiceover: 'Real-time monitoring with intelligent alerts tells you exactly what broke and why—so you fix issues in minutes, not hours—and fast resolution keeps users happy and retention high, right?'\nOn-screen: 'Smart Monitoring → Instant Alerts → Fast Resolution'\nTie-down visual: MTTR (Mean Time To Resolution) dropping from hours to minutes\n\nFEATURE 4 - Auto-Generated Developer Portal (12s):\nVisual: Click 'Generate Portal'. Beautiful developer documentation site appears: Interactive API reference, code examples in 7 languages, live sandbox environment where developers can test calls, authentication guides. Developer from external company using the portal, testing API calls, successfully integrating.\nVoiceover: 'One-click developer portal generation gives you beautiful docs and interactive sandboxes—making integration effortless for your API consumers—and great developer experience means faster adoption and fewer support tickets, doesn't it?'\nOn-screen: 'Auto Portal → Interactive Docs → Faster Adoption'\nTie-down visual: API adoption rate growing, integration time reduced",
+    "closing": "Montage of all features working together: Team designing API, tests running automatically, monitoring catching issues, partners integrating via portal. Metrics overlay: 'Development Speed: +45%', 'API Downtime: -87%', 'Integration Time: -60%'. Developer closes laptop at 5 PM confidently. End card: '[Platform] - APIs Done Right · Start Free Trial'. Clean, minimalist design with code-style monospace font.",
+    "visualGuidelines": [
+      "Dark mode UI throughout (developers prefer dark themes)",
+      "Code syntax highlighting: Use realistic code examples",
+      "Terminal aesthetic: Monospace fonts, green/blue accent colors",
+      "Show real developer workflows: IDE, terminal, browser, all in shot",
+      "API requests/responses shown in proper JSON format",
+      "Subtle animations: API calls traveling, tests running, data flowing",
+      "Include diverse developers (age, gender, background)",
+      "Use actual developer tools in background: VS Code, Docker, Kubernetes",
+      "Typography: Monospace fonts for code, clean sans-serif for UI",
+      "Color scheme: Dark background with cyan, green, orange accents"
+    ]
+  },
+  "metadata": {
+    "targetAudience": [
+      "Backend developers",
+      "API architects",
+      "DevOps engineers",
+      "Engineering managers",
+      "Platform teams",
+      "Technical founders"
+    ],
+    "keyFeatures": [
+      {
+        "feature": "Collaborative API Design",
+        "benefit": "Team designs together, docs always accurate, no drift",
+        "highlight": true
+      },
+      {
+        "feature": "AI-Powered Testing",
+        "benefit": "Comprehensive tests generated automatically, bugs caught early",
+        "highlight": true
+      },
+      {
+        "feature": "Intelligent Monitoring",
+        "benefit": "Know what broke, why it broke, fix it fast",
+        "highlight": true
+      },
+      {
+        "feature": "Auto Developer Portal",
+        "benefit": "Beautiful docs and sandbox, faster partner integration",
+        "highlight": true
+      }
+    ],
+    "duration": "60s",
+    "platforms": ["youtube", "linkedin", "website", "developer-conferences"],
+    "painPoints": [
+      "Documentation drift from actual API behavior",
+      "Manual test writing takes forever",
+      "Production issues discovered by users first",
+      "Slow partner/customer API integration",
+      "Scattered tools (design, testing, monitoring all separate)",
+      "Support overhead from poor documentation"
+    ],
+    "callToAction": "Start Free Trial",
+    "tags": ["developer-tools", "API", "testing", "monitoring", "documentation", "devops", "feature-benefit-tiedown", "technical"],
+    "difficulty": "intermediate",
+    "estimatedCost": "medium"
+  },
+  "examples": {
+    "inspirations": [
+      {
+        "company": "Postman",
+        "videoTitle": "Postman Platform Overview",
+        "url": "https://www.postman.com",
+        "whatMakesItGreat": "Clear feature demonstrations, developer-focused, shows real workflows"
+      },
+      {
+        "company": "Stoplight",
+        "videoTitle": "API Design-First Workflow",
+        "url": "https://stoplight.io",
+        "whatMakesItGreat": "Shows collaborative design process, emphasizes documentation quality"
+      },
+      {
+        "company": "ReadMe",
+        "videoTitle": "ReadMe Developer Hub",
+        "url": "https://readme.com",
+        "whatMakesItGreat": "Beautiful developer portal examples, focus on DX (developer experience)"
+      }
+    ],
+    "variations": [
+      "90s version: Add sections on versioning, SDK generation, webhook testing",
+      "GraphQL-focused: Show GraphQL-specific features and tooling",
+      "Enterprise version: Emphasize security, compliance, governance, SSO",
+      "Open-source focus: Show GitHub integration, community contribution workflows"
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 30,
+    "colorGrading": "Dark theme with high contrast, cyan and orange accents, code-style aesthetic"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

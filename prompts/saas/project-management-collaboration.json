@@ -1,0 +1,329 @@
+{
+  "id": "saas-pm-collaboration-fbtd",
+  "name": "Project Management Collaboration - Feature-Benefit-Tie Down",
+  "category": "saas",
+  "subcategory": "Project Management",
+  "framework": "feature-benefit-tiedown",
+  "style": {
+    "tone": "energetic",
+    "pacing": "fast",
+    "videoType": ["marketing", "feature-highlight"]
+  },
+  "prompt": {
+    "main": "Create an energetic 60-second product demo for a modern project management platform using the Feature-Benefit-Tie Down framework. Show 5 killer features, each followed by clear benefits and compelling tie-down statements. Open with a hook about project chaos, then systematically showcase: (1) Real-time collaboration boards with automatic sync, (2) AI-powered task prioritization, (3) Cross-team dependency mapping, (4) Automated status reporting, and (5) Integrated time tracking. Each feature should get 10 seconds with smooth UI animations showing the feature in action, a clear benefit statement, and a rhetorical tie-down question. Use bright, vibrant colors, fast-paced editing, upbeat electronic music, and confident typography. End with metrics showing 3x faster project completion.",
+    "opening": "Hook: Screen shows chaos: 47 unread Slack messages, 12 overdue tasks, confused team members asking 'What's the priority?', manager asking for status updates. Freeze frame. Text appears: 'There's a better way to manage projects.' Logo reveal. Music drops into confident beat.",
+    "middle": "FEATURE 1 - Real-Time Collaboration Boards (10s):\n- Visual: Team members across different locations all viewing same board. One person drags a task to 'In Progress'—everyone's screens update instantly. Another adds a comment—notification appears immediately for relevant team members.\n- Voiceover: '[Product] gives you real-time collaboration boards where every change syncs instantly across your entire team—which means no more version confusion or outdated information—everyone's always on the same page. That saves hours of confusion every week, doesn't it?'\n- On-screen: 'Real-Time Sync · Zero Lag · Always Current'\n- Tie-down visual: Checkmark appears, happy team members nodding\n\nFEATURE 2 - AI Task Prioritization (10s):\n- Visual: Tasks automatically reorder based on deadlines, dependencies, and team capacity. AI highlights top 3 priorities for each person. Smart suggestions: 'Based on your skills, you should tackle Design Review next.'\n- Voiceover: 'AI automatically prioritizes your tasks based on deadlines, dependencies, and team workload—so you always know what matters most—and focus drives results, doesn't it?'\n- On-screen: 'AI Prioritization · Smart Suggestions · Zero Guesswork'\n- Tie-down visual: Productivity graph trending up\n\nFEATURE 3 - Dependency Mapping (10s):\n- Visual: Gantt-style view showing interconnected tasks. One task gets delayed—system automatically adjusts all dependent tasks and notifies affected team members. Timeline recalculates. Visual lines showing dependencies.\n- Voiceover: 'Automatic dependency mapping means when one task shifts, every related task adjusts instantly—which prevents bottlenecks before they happen—and preventing problems beats fixing them, right?'\n- On-screen: 'Smart Dependencies · Auto-Adjust · Prevent Delays'\n- Tie-down visual: Warning icon turning to green checkmark\n\nFEATURE 4 - Automated Status Reports (10s):\n- Visual: Calendar hits Friday 5 PM. Status report auto-generates pulling data from all tasks, showing progress, blockers, and upcoming milestones. Report sends to stakeholders. Manager reviews instead of manually creating.\n- Voiceover: 'Automated status reports pull real data and send themselves every Friday—saving your team hours of manual reporting—and time saved is money earned, isn't it?'\n- On-screen: 'Auto Reports · Every Friday · Zero Manual Work'\n- Tie-down visual: Clock showing 5 hours saved\n\nFEATURE 5 - Integrated Time Tracking (10s):\n- Visual: Time tracking built into tasks. Click task, timer starts. Automatic time suggestions based on task type. Weekly reports show where time actually goes. Budget tracking for client projects.\n- Voiceover: 'Built-in time tracking shows exactly where hours go and keeps projects on budget—which means accurate billing and better planning—and knowing your numbers is how you grow, right?'\n- On-screen: 'Time Tracking · Budget Alerts · Accurate Billing'\n- Tie-down visual: Dollar signs with positive metrics",
+    "closing": "Rapid montage: All 5 features working together in harmony. Multiple teams collaborating smoothly, projects moving from start to finish. Metrics appear: 'Projects Completed: +3x Faster', 'Team Productivity: +67%', 'Time Wasted on Admin: -80%'. Happy teams high-fiving. End card: '[Product] - Projects Done Right' with CTA: 'Start Free · No Credit Card'. Upbeat music reaches crescendo.",
+    "visualGuidelines": [
+      "Use vibrant brand colors: Electric blue, energetic orange, success green",
+      "Fast-paced editing: Each feature section is exactly 10 seconds, no meandering",
+      "UI animations at 60fps with smooth easing functions",
+      "Tie-down moments get visual emphasis: Checkmarks, thumbs up, nodding heads",
+      "Show diverse teams: Different ages, backgrounds, time zones",
+      "Split-screen comparisons: Old way vs. new way",
+      "Isometric board views for spatial understanding",
+      "Typography: Bold sans-serif, high contrast, animated counters for metrics",
+      "Transitions: Quick cuts with whoosh sounds between features",
+      "Benefits appear as animated text overlays during demonstrations"
+    ]
+  },
+  "script": {
+    "storyboard": [
+      {
+        "scene": 1,
+        "duration": "5s",
+        "visual": "Split screen showing project chaos: Left - Slack showing 47 unread messages, Middle - Trello board with overdue tasks in red, Right - Email chain with 23 replies asking for status. Freeze all three screens.",
+        "voiceover": "Status updates in Slack. Tasks in Trello. Files in Google Drive. Timelines in Excel.",
+        "onScreen": "4 Tools · 47 Notifications · 0 Clarity",
+        "music": "Chaotic, discordant sounds",
+        "transition": "All screens glitch"
+      },
+      {
+        "scene": 2,
+        "duration": "3s",
+        "visual": "Screens collapse into one clean project board interface. Logo reveal with confident animation.",
+        "voiceover": "There's a better way.",
+        "onScreen": "[Product Name] · All-In-One Project Platform",
+        "music": "Beat drops, confident electronic music begins",
+        "transition": "Smooth morph"
+      },
+      {
+        "scene": 3,
+        "duration": "3s",
+        "visual": "Kanban board view. Three team members in different locations (office, home, coffee shop) all viewing same board on different devices (desktop, laptop, tablet).",
+        "voiceover": "[Product] gives you real-time collaboration boards...",
+        "onScreen": "Feature #1: Real-Time Boards",
+        "music": "Steady beat, building",
+        "transition": "Zoom into board"
+      },
+      {
+        "scene": 4,
+        "duration": "4s",
+        "visual": "Watch one team member (Amy in Tokyo) drag task 'User Research' from 'To Do' to 'In Progress'. Instantly, other screens update showing the move. Highlight ripple effect. Another member (Carlos in NYC) adds comment 'Great! I'll prep the questions'—notification appears on Amy's screen immediately.",
+        "voiceover": "...where every change syncs instantly across your entire team—which means no more version confusion or outdated information.",
+        "onScreen": "Tokyo 3:00 PM · NYC 2:00 AM · London 7:00 AM · All In Sync",
+        "music": "Synth notes on each sync",
+        "transition": "Follow the update ripple"
+      },
+      {
+        "scene": 5,
+        "duration": "3s",
+        "visual": "All three team members smiling, confident. Checkmark animation appears. Quick metric: 'Version conflicts: 0 | Info accuracy: 100%'",
+        "voiceover": "Everyone's always on the same page. That saves hours of confusion every week, doesn't it?",
+        "onScreen": "✓ Zero Confusion · Always Current",
+        "music": "Affirming chord",
+        "transition": "Checkmark expands to next feature"
+      },
+      {
+        "scene": 6,
+        "duration": "3s",
+        "visual": "Task list for a developer. Long list of 23 tasks in random order. Suddenly, AI sparkle animation. Tasks automatically reorder themselves based on priority algorithm.",
+        "voiceover": "AI automatically prioritizes your tasks based on deadlines, dependencies, and team workload...",
+        "onScreen": "Feature #2: AI Prioritization",
+        "music": "Futuristic AI sound",
+        "transition": "AI shimmer effect"
+      },
+      {
+        "scene": 7,
+        "duration": "4s",
+        "visual": "Top 3 tasks highlighted in gold. AI sidebar appears with suggestion: 'Based on your backend skills and current sprint goals, tackle API Integration next. Estimated time: 4 hours.' Smart insights showing reasoning.",
+        "voiceover": "...so you always know what matters most—and focus drives results, doesn't it?",
+        "onScreen": "Smart Suggestions · Prioritized by AI · Focus on What Matters",
+        "music": "Confident, focused beat",
+        "transition": "Gold highlight persists"
+      },
+      {
+        "scene": 8,
+        "duration": "3s",
+        "visual": "Productivity graph animating upward. Developer confidently selects top task and begins. Multiple team members working on their top priorities simultaneously.",
+        "voiceover": "[Tie-down emphasis with visual nod from user]",
+        "onScreen": "✓ 67% More Productive · Zero Decision Fatigue",
+        "music": "Upward progression notes",
+        "transition": "Zoom to project timeline"
+      },
+      {
+        "scene": 9,
+        "duration": "3s",
+        "visual": "Gantt chart view showing project timeline. Tasks connected with dependency lines. Highlight one task 'Design Mockups' currently in progress.",
+        "voiceover": "Automatic dependency mapping means when one task shifts...",
+        "onScreen": "Feature #3: Smart Dependencies",
+        "music": "Network connection sounds",
+        "transition": "Lines connecting animate"
+      },
+      {
+        "scene": 10,
+        "duration": "4s",
+        "visual": "Task 'Design Mockups' gets delayed by 2 days (designer drags to new date). Watch as all connected tasks automatically adjust: 'Frontend Development' shifts 2 days, 'QA Testing' shifts 2 days, 'Launch' recalculates. Affected team members get instant notifications: 'Timeline updated. Dev start now: Aug 15.'",
+        "voiceover": "...every related task adjusts instantly—which prevents bottlenecks before they happen.",
+        "onScreen": "Auto-Adjust · Prevent Delays · Keep Team Aligned",
+        "music": "Cascading adjustments sound",
+        "transition": "Ripple effect through timeline"
+      },
+      {
+        "scene": 11,
+        "duration": "3s",
+        "visual": "Warning icon briefly appears, then turns to green checkmark. Project timeline remains achievable. Manager views updated timeline, gives thumbs up.",
+        "voiceover": "And preventing problems beats fixing them, right?",
+        "onScreen": "✓ Zero Bottlenecks · Proactive Planning",
+        "music": "Resolution chord",
+        "transition": "Checkmark transitions to calendar"
+      },
+      {
+        "scene": 12,
+        "duration": "3s",
+        "visual": "Calendar showing Friday approaching. Clock hits 5:00 PM. Automatic animation triggers.",
+        "voiceover": "Automated status reports pull real data and send themselves every Friday...",
+        "onScreen": "Feature #4: Auto Status Reports",
+        "music": "Clock ticking into automation",
+        "transition": "Calendar to report generation"
+      },
+      {
+        "scene": 13,
+        "duration": "4s",
+        "visual": "Watch status report auto-generate in real-time: Progress bars showing task completion (Development: 78%, Design: 100%, Testing: 45%), blockers highlighted ('Waiting on API keys'), upcoming milestones listed. Report formats beautifully and sends via email to stakeholder list.",
+        "voiceover": "...saving your team hours of manual reporting—and time saved is money earned, isn't it?",
+        "onScreen": "Auto-Generated · Data-Driven · Sent Every Friday",
+        "music": "Efficient, productive sound",
+        "transition": "Email sending animation"
+      },
+      {
+        "scene": 14,
+        "duration": "3s",
+        "visual": "Split screen: Left shows manager happily reviewing auto-report in 2 minutes. Right shows old way: manager spending 2 hours compiling data from multiple sources. Time counter: '5 hours saved per week'.",
+        "voiceover": "[Emphasis on time saved]",
+        "onScreen": "✓ 5 Hours Saved Weekly · Focus on Strategy Not Reporting",
+        "music": "Time-saving whoosh sound",
+        "transition": "Clock hands spinning to next feature"
+      },
+      {
+        "scene": 15,
+        "duration": "3s",
+        "visual": "Task card with timer icon. Team member clicks task, timer automatically starts. Subtle timer running in corner of screen while they work.",
+        "voiceover": "Built-in time tracking shows exactly where hours go and keeps projects on budget...",
+        "onScreen": "Feature #5: Time Tracking Built In",
+        "music": "Ticking integrated into beat",
+        "transition": "Task expands to show details"
+      },
+      {
+        "scene": 16,
+        "duration": "4s",
+        "visual": "Week view showing time breakdown: Design: 14h, Development: 28h, Meetings: 6h. Client project budget tracker: '32/40 hours used, $8K/$10K budget'. Alert: 'On track to finish under budget!' Time suggestions: 'Similar tasks took 3-4 hours.'",
+        "voiceover": "...which means accurate billing and better planning—and knowing your numbers is how you grow, right?",
+        "onScreen": "Accurate Billing · Budget Tracking · Growth Insights",
+        "music": "Data-driven confidence",
+        "transition": "Numbers counting up"
+      },
+      {
+        "scene": 17,
+        "duration": "3s",
+        "visual": "Dollar signs appearing with positive metrics: 'Revenue Tracked: $47K this month', 'Profitable Projects: 94%'. Happy finance team reviewing reports.",
+        "voiceover": "[Emphasis on growth]",
+        "onScreen": "✓ Know Your Numbers · Grow With Confidence",
+        "music": "Success notes",
+        "transition": "Expand to full ecosystem"
+      },
+      {
+        "scene": 18,
+        "duration": "5s",
+        "visual": "Rapid montage showing all 5 features working together: Real-time board updates flowing, AI prioritizing tasks, dependencies auto-adjusting, reports generating, time tracking. Multiple teams across multiple projects all moving smoothly. Projects flowing from 'Planning' through to 'Completed'.",
+        "voiceover": "Real-time collaboration, AI prioritization, smart dependencies, automatic reporting, integrated tracking—all working together.",
+        "onScreen": "5 Features · 1 Platform · Infinite Productivity",
+        "music": "All musical themes layered",
+        "transition": "Fast cuts, high energy"
+      },
+      {
+        "scene": 19,
+        "duration": "4s",
+        "visual": "Metrics overlay appearing: 'Projects Completed: +3x Faster' (animated counter), 'Team Productivity: +67%', 'Admin Time: -80%', 'On-Time Delivery: 94%'. Teams celebrating, high-fiving, shipping features.",
+        "voiceover": "The result? Projects done three times faster, teams sixty-seven percent more productive.",
+        "onScreen": "Real Results · Real Teams · Real Growth",
+        "music": "Crescendo building",
+        "transition": "Metrics expanding"
+      },
+      {
+        "scene": 20,
+        "duration": "4s",
+        "visual": "Clean end card: Logo centered, confident tagline 'Projects Done Right'. CTA button animated: 'Start Free Trial · No Credit Card Required'. Secondary text: 'Setup in 5 Minutes · Invite Your Team'. Subtle particle effects in brand colors.",
+        "voiceover": "Start free today.",
+        "onScreen": "www.[product].com · Start Free Trial",
+        "music": "Final triumphant chord, then soft outro",
+        "transition": "Fade to brand color"
+      }
+    ],
+    "fullVoiceover": "Status updates in Slack. Tasks in Trello. Files in Google Drive. Timelines in Excel. There's a better way. [Product] gives you real-time collaboration boards where every change syncs instantly across your entire team—which means no more version confusion or outdated information. Everyone's always on the same page. That saves hours of confusion every week, doesn't it? AI automatically prioritizes your tasks based on deadlines, dependencies, and team workload—so you always know what matters most—and focus drives results, doesn't it? Automatic dependency mapping means when one task shifts, every related task adjusts instantly—which prevents bottlenecks before they happen. And preventing problems beats fixing them, right? Automated status reports pull real data and send themselves every Friday—saving your team hours of manual reporting—and time saved is money earned, isn't it? Built-in time tracking shows exactly where hours go and keeps projects on budget—which means accurate billing and better planning—and knowing your numbers is how you grow, right? Real-time collaboration, AI prioritization, smart dependencies, automatic reporting, integrated tracking—all working together. The result? Projects done three times faster, teams sixty-seven percent more productive. Start free today.",
+    "hooks": [
+      "Your team is using 4 tools to manage one project. Here's how to fix that.",
+      "What if your projects could manage themselves? (They kind of can now.)",
+      "We analyzed 10,000 projects. The best teams have this in common.",
+      "Projects delivered 3x faster. Same team. One change.",
+      "Stop asking for status updates. Start knowing automatically."
+    ]
+  },
+  "metadata": {
+    "targetAudience": [
+      "Project Managers",
+      "Team Leads",
+      "Engineering Managers",
+      "Product Managers",
+      "Scrum Masters",
+      "Creative Directors",
+      "Agencies (10-100 employees)"
+    ],
+    "keyFeatures": [
+      {
+        "feature": "Real-Time Collaboration Boards",
+        "benefit": "Everyone sees updates instantly, no version confusion",
+        "highlight": true
+      },
+      {
+        "feature": "AI Task Prioritization",
+        "benefit": "Always work on what matters most, zero decision fatigue",
+        "highlight": true
+      },
+      {
+        "feature": "Automatic Dependency Mapping",
+        "benefit": "Prevent bottlenecks before they happen, keep timeline realistic",
+        "highlight": true
+      },
+      {
+        "feature": "Automated Status Reports",
+        "benefit": "Save 5+ hours per week on manual reporting",
+        "highlight": false
+      },
+      {
+        "feature": "Integrated Time Tracking",
+        "benefit": "Accurate billing, budget tracking, better planning",
+        "highlight": false
+      }
+    ],
+    "duration": "60s",
+    "platforms": ["linkedin", "youtube", "website", "facebook"],
+    "painPoints": [
+      "Information scattered across multiple tools",
+      "Version confusion and outdated task lists",
+      "Unclear priorities and decision fatigue",
+      "Project delays due to untracked dependencies",
+      "Hours wasted on manual status reporting",
+      "Inaccurate time estimates and budget overruns",
+      "Lack of visibility into team workload",
+      "Communication bottlenecks"
+    ],
+    "callToAction": "Start Free Trial",
+    "tags": [
+      "project-management",
+      "collaboration",
+      "productivity",
+      "AI",
+      "automation",
+      "agile",
+      "teams",
+      "feature-benefit-tiedown",
+      "energetic"
+    ],
+    "difficulty": "beginner",
+    "estimatedCost": "low"
+  },
+  "examples": {
+    "inspirations": [
+      {
+        "company": "Asana",
+        "videoTitle": "Asana Product Tour",
+        "url": "https://asana.com/product",
+        "whatMakesItGreat": "Fast-paced feature showcase, clear benefits, energetic pacing, modern aesthetic"
+      },
+      {
+        "company": "Monday.com",
+        "videoTitle": "A New Way of Working",
+        "url": "https://monday.com",
+        "whatMakesItGreat": "Vibrant colors, energetic music, quick feature demonstrations, benefit-focused"
+      },
+      {
+        "company": "Notion",
+        "videoTitle": "Notion Product Demo",
+        "url": "https://notion.so",
+        "whatMakesItGreat": "Clean UI showcase, smooth animations, productivity-focused messaging"
+      },
+      {
+        "company": "ClickUp",
+        "videoTitle": "ClickUp Overview",
+        "url": "https://clickup.com",
+        "whatMakesItGreat": "Feature-dense, fast-paced, shows power and flexibility"
+      }
+    ],
+    "variations": [
+      "30-second version: Show only top 3 features (Real-time boards, AI prioritization, Auto reports)",
+      "90-second version: Add team onboarding section, integration showcase, and mobile app demo",
+      "Industry-specific: Software development (sprints, code reviews), Marketing (campaigns, content calendar), Construction (resource allocation, safety tracking)",
+      "Mobile-first version: Emphasize mobile app capabilities for on-the-go teams",
+      "Enterprise version: Add sections on security, permissions, SSO, and admin controls"
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 60,
+    "colorGrading": "Vibrant and saturated, high contrast, brand colors emphasized throughout"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

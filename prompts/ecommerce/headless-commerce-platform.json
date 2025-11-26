@@ -1,0 +1,52 @@
+{
+  "id": "ecommerce-headless-platform-savethecat",
+  "name": "Headless E-commerce Platform - Save the Cat",
+  "category": "ecommerce",
+  "subcategory": "Commerce Platform",
+  "framework": "save-the-cat",
+  "style": {
+    "tone": "professional",
+    "pacing": "medium",
+    "videoType": ["sales", "brand"]
+  },
+  "prompt": {
+    "main": "Create a 90-second e-commerce platform demo following Save the Cat structure. Hero: E-commerce director at growing brand struggling with slow, inflexible platform limiting growth. Opening Image: Watching customers abandon carts due to slow load times. Theme: 'Your platform should accelerate growth, not limit it.' Catalyst: Black Friday approaching, current platform can't handle the traffic. Break Into Two: Discovery of headless commerce platform. Fun & Games: Show blazing-fast storefront performance, omnichannel selling (web, mobile, social, marketplace—all from one backend), flexible content management, real-time inventory across channels, instant checkout, global expansion capabilities. Midpoint: Successful Black Friday with zero downtime. Finale: Brand expanding globally, launching new channels effortlessly. Final Image: Same director, but now confidently planning ambitious expansion. Use sleek, modern aesthetic with fast product imagery and satisfied customers.",
+    "opening": "E-commerce director (Sarah) watching analytics dashboard on Black Friday preview sale. Page load time: 4.2 seconds. Cart abandonment rate: 73%. Customer support chat showing complaints: 'Site is so slow', 'Couldn't complete checkout'. Sarah's frustration visible. Conference room meeting: 'We're losing $50K in revenue per day to performance issues.' CTO: 'The monolithic platform is at its limit.'",
+    "middle": "Full Save the Cat beats: Theme stated (platforms should enable growth). Set-up (daily struggles with platform limitations). Catalyst (Black Friday approaching, platform will crash). Debate (can't re-platform in time... or can they?). Break into Two (discovery of headless platform, migration in weeks not months). Fun & Games (showing platform features): Lightning-fast React storefronts (0.8s load times), selling on Instagram/TikTok/Amazon from same backend, drag-and-drop content builder for marketing, real-time inventory sync across all channels, one-click checkout with saved payment methods, multi-currency and localization for global markets. Midpoint (successful Black Friday, platform handled 10x traffic, zero downtime). Finale (brand now selling in 12 countries, launched mobile app in days, revenue up 3x).",
+    "closing": "Final Image: Same conference room, Sarah presenting growth plans confidently. Dashboard shows: '12 countries, 6 sales channels, 99.99% uptime, page load 0.7s'. Board member: 'What's next?' Sarah smiles: 'We can do anything now.' End card: '[Platform] - Commerce Without Limits'.",
+    "visualGuidelines": [
+      "Show actual fast e-commerce sites loading",
+      "Include beautiful product imagery (fashion, electronics, lifestyle)",
+      "Multi-channel visualization: Split screens showing same product across web/mobile/social",
+      "Performance metrics prominently displayed",
+      "Happy customers completing purchases smoothly",
+      "Global map showing expansion",
+      "Modern, clean UI design",
+      "Professional color grading: Confident blues, premium blacks, success greens"
+    ]
+  },
+  "metadata": {
+    "targetAudience": ["E-commerce Directors", "Digital Commerce Managers", "CTOs of retail brands", "Growing DTC brands", "Omnichannel retailers"],
+    "keyFeatures": [
+      {"feature": "Blazing Fast Performance", "benefit": "Sub-second load times increase conversions by 40%+", "highlight": true},
+      {"feature": "True Omnichannel", "benefit": "Sell everywhere from one backend—web, mobile, social, marketplaces", "highlight": true},
+      {"feature": "Headless Architecture", "benefit": "Launch new experiences in days, not months", "highlight": true},
+      {"feature": "Global Commerce Ready", "benefit": "Multi-currency, localization, compliance built-in", "highlight": false}
+    ],
+    "duration": "90s",
+    "platforms": ["website", "linkedin", "youtube", "sales-deck"],
+    "painPoints": ["Slow site performance losing sales", "Can't launch new channels quickly", "Platform doesn't scale", "Black Friday/Cyber Monday crashes", "Global expansion blocked by technical limitations"],
+    "callToAction": "Request Demo",
+    "tags": ["ecommerce", "headless-commerce", "omnichannel", "DTC", "retail-tech", "save-the-cat", "professional"],
+    "difficulty": "advanced",
+    "estimatedCost": "high"
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 30,
+    "colorGrading": "Premium, professional aesthetic with strong contrast"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}

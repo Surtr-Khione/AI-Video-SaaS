@@ -1,0 +1,338 @@
+{
+  "id": "saas-crm-sales-acceleration-prs",
+  "name": "CRM Sales Acceleration - Problem-Reaction-Solution",
+  "category": "saas",
+  "subcategory": "CRM",
+  "framework": "problem-reaction-solution",
+  "style": {
+    "tone": "professional",
+    "pacing": "dynamic",
+    "videoType": ["sales", "marketing"]
+  },
+  "prompt": {
+    "main": "Create a cinematic 60-second product demo for a modern CRM platform that transforms chaotic sales processes into streamlined deal-closing machines. Open with a frustrated sales rep drowning in spreadsheets and missed follow-ups across 8 different tools, losing deals to competitors. Transition to discovering the CRM solution, showing elegant automation, intelligent deal prioritization, and team collaboration features. Close with the same rep confidently closing deals, hitting quotas, and celebrating with their team. Use a Problem-Reaction-Solution narrative structure with dramatic lighting shifts from dark/chaotic to bright/organized. Include smooth UI animations, professional color grading, and upbeat background music that builds energy.",
+    "opening": "Open on a modern office at 7 PM. A sales representative, backlit by multiple monitors, frantically switches between tabs: Excel spreadsheets with hundreds of leads, Gmail with 247 unread messages, Slack notifications pinging constantly, a calendar full of conflicting meetings. They're typing furiously, looking stressed. A notification pops up: 'Meeting with Johnson Corp in 5 minutes' but they can't find the client notes. Quick cuts show: A lead going cold, a competitor's email in the client's inbox, a missed follow-up reminder. Close-up on the rep's frustrated face. Text overlay: 'Your sales team is drowning.' Dark, desaturated color grading with harsh fluorescent lighting.",
+    "middle": "REACTION (8 seconds): Cut to a dashboard showing metrics trending down: 'Deals Lost: +43%', 'Response Time: 2.3 days', 'Rep Productivity: -28%'. The sales manager looks at quarterly projections falling short. Quick montage: A valuable client choosing a competitor, a team meeting with tension, revenue goals being missed. Voiceover: 'Every lost deal isn't just money—it's momentum.' Music becomes more urgent.\n\nSOLUTION (37 seconds): Screen goes black. A single notification sound. The rep's phone lights up: 'Try [CRM Name]'. Fade to bright, modern office—same rep, but now calm and confident. They open a clean, intuitive CRM dashboard. \n\nShow key features in action:\n1. AI Lead Scoring (5s): Leads automatically ranked by conversion probability, high-value prospects highlighted in gold\n2. Automated Follow-ups (5s): Emails and tasks auto-generated based on deal stage, sent at optimal times\n3. 360° Client View (5s): All communications, documents, and history in one unified timeline\n4. Real-time Collaboration (5s): Team members adding notes, manager approving discounts, all in-platform\n5. Smart Reminders (4s): Context-aware notifications: 'Johnson Corp decision maker just opened your proposal'\n6. Pipeline Visualization (5s): Drag-and-drop deal stages, automatic revenue forecasting\n7. Mobile Access (4s): Rep closing a deal from their phone while commuting\n\nShow metrics improving in real-time: Response time down to 4 hours, deals closing 35% faster, team hitting 127% of quota.",
+    "closing": "Return to the same office, but transformed. Natural lighting, organized workspace, confident rep. They close a major deal on a video call, shake hands virtually. Team celebrates. Dashboard shows: 'Monthly Target: Exceeded', 'Team Performance: Record High'. The rep leaves office at 5 PM, smiling. Final shot: Clean CRM dashboard with all deals moving right. Text overlay: 'Stop drowning. Start closing.' Logo appears with CTA: 'Start Your 14-Day Free Trial'. Uplifting, victorious music.",
+    "visualGuidelines": [
+      "Use color grading to show transformation: Desaturated cool tones (problem) → Vibrant warm tones (solution)",
+      "Opening: Chaotic quick cuts, handheld camera feel, cluttered frame composition",
+      "Solution: Smooth Steadicam movements, organized compositions, clean negative space",
+      "UI animations should be smooth, 60fps, with subtle micro-interactions",
+      "Show real data and realistic scenarios, not abstract concepts",
+      "Use depth of field to focus attention: Blurred background during problem, sharp clarity during solution",
+      "Include diverse team members to show inclusivity",
+      "Lighting: Harsh overhead fluorescents (problem) → Soft natural window light (solution)",
+      "Typography: Bold, modern sans-serif for on-screen text, high contrast",
+      "Transition at 'Solution' moment: Use a satisfying screen swipe or fade through white"
+    ]
+  },
+  "script": {
+    "storyboard": [
+      {
+        "scene": 1,
+        "duration": "4s",
+        "visual": "Overhead shot of cluttered desk: laptop with 15+ browser tabs, phone buzzing with notifications, printed spreadsheets with handwritten notes, cold coffee. Sales rep's hands frantically moving between keyboard and mouse. Camera slowly pushes in.",
+        "voiceover": "Meet Sarah. She's an amazing sales rep. But her tools are killing her.",
+        "onScreen": "7:43 PM · 23 Open Tasks · 14 Missed Follow-ups",
+        "music": "Low, tense ambient pad",
+        "transition": "Quick cut"
+      },
+      {
+        "scene": 2,
+        "duration": "4s",
+        "visual": "Rapid montage: Excel spreadsheet scrolling, rows of leads bleeding together. Gmail tab showing 247 unread. Slack messages pinging. Calendar with triple-booked slots. Each shot 0.5-1 second.",
+        "voiceover": "Eight different tools. Hundreds of leads. Zero clarity.",
+        "onScreen": "Excel · Gmail · Slack · Calendly · DocuSign · LinkedIn · Zoom · HubSpot",
+        "music": "Percussion building tension",
+        "transition": "Flash cuts"
+      },
+      {
+        "scene": 3,
+        "duration": "3s",
+        "visual": "Close-up: Notification popup 'Meeting with Johnson Corp in 5 min'. Sarah's eyes widen. She frantically searches through folders. Can't find the notes. Clock ticking.",
+        "voiceover": "Where are the client notes? What did we discuss last time?",
+        "onScreen": "Johnson Corp · $180K Deal · Stage: Final Decision",
+        "music": "Clock ticking sound effect added",
+        "transition": "Glitch transition"
+      },
+      {
+        "scene": 4,
+        "duration": "4s",
+        "visual": "Split screen: Left shows Sarah's delayed email sitting in drafts. Right shows competitor's email arriving in Johnson Corp's inbox first. Time stamps show competitor beat her by 3 hours. Client's cursor hovers over competitor's proposal.",
+        "voiceover": "While she's searching... competitors are closing.",
+        "onScreen": "Left: 'Draft saved 11:42 AM' · Right: 'Received 2:17 PM'",
+        "music": "Ominous low note",
+        "transition": "Split screen merge"
+      },
+      {
+        "scene": 5,
+        "duration": "3s",
+        "visual": "Dashboard on sales manager's screen: Red arrows pointing down. 'Deals Lost This Quarter: +43%', 'Avg Response Time: 2.3 days', 'Team Productivity: -28%'. Manager's hand runs through hair in frustration.",
+        "voiceover": "This isn't just Sarah's problem. It's costing the entire team.",
+        "onScreen": "Q4 Performance: $340K Below Target",
+        "music": "Music drops to minimal bass",
+        "transition": "Fade through black"
+      },
+      {
+        "scene": 6,
+        "duration": "4s",
+        "visual": "Montage of consequences: Email from prospect 'Going with another vendor', team meeting with tense faces, revenue forecast chart declining, Sarah staying late again (now 9:15 PM).",
+        "voiceover": "Lost deals. Missed quotas. Burned-out reps.",
+        "onScreen": "The real cost: Momentum",
+        "music": "Silence with just ambient office sounds",
+        "transition": "Slow fade to black"
+      },
+      {
+        "scene": 7,
+        "duration": "2s",
+        "visual": "Black screen. Pause. Single notification sound. Phone screen lights up in darkness showing: 'Your team is trying [CRM Name]'",
+        "voiceover": "[Silence]",
+        "onScreen": "[CRM Name] · Unified Sales Platform",
+        "music": "Single piano note (hopeful)",
+        "transition": "White flash"
+      },
+      {
+        "scene": 8,
+        "duration": "3s",
+        "visual": "Same office, same desk, but morning light streaming through windows. Clean workspace. Sarah arrives at 9 AM, relaxed, coffee in hand. Opens laptop to beautiful, minimal CRM dashboard.",
+        "voiceover": "There's a better way.",
+        "onScreen": "8 Tools → 1 Platform",
+        "music": "Uplifting music begins, soft strings",
+        "transition": "Smooth fade in"
+      },
+      {
+        "scene": 9,
+        "duration": "5s",
+        "visual": "Close-up of CRM dashboard: AI lead scoring in action. Leads automatically organized by priority. High-value prospects highlighted in gold with confidence scores (94%, 87%, 91%). AI insights: 'Johnson Corp shows high intent - opened proposal 3x, visited pricing page.'",
+        "voiceover": "AI tells you exactly who to focus on, and when.",
+        "onScreen": "AI Lead Scoring · Know Who's Ready to Buy",
+        "music": "Electronic elements added, building energy",
+        "transition": "Zoom into gold-highlighted lead"
+      },
+      {
+        "scene": 10,
+        "duration": "5s",
+        "visual": "Automated follow-up system: Watch as emails compose themselves based on deal stage. 'Day 3 after demo: Check-in email' auto-generates with personalized content, sends at optimal time (10:23 AM based on recipient's open patterns). Sarah just reviews and clicks approve.",
+        "voiceover": "Never miss a follow-up. Never send at the wrong time.",
+        "onScreen": "Smart Automation · Sent 10:23 AM (Optimal Time)",
+        "music": "Rhythmic, confident beat",
+        "transition": "Email sends with satisfying whoosh animation"
+      },
+      {
+        "scene": 11,
+        "duration": "5s",
+        "visual": "360° client view: Unified timeline showing all interactions. Scroll through: initial contact email, demo call recording, proposal sent, questions asked, pricing discussed, decision makers identified, competitor mentions noted. Everything in context, chronological, searchable.",
+        "voiceover": "Every conversation, every document, every insight—in one place.",
+        "onScreen": "Complete Client Context · Zero Searching",
+        "music": "Flowing, seamless progression",
+        "transition": "Timeline scroll"
+      },
+      {
+        "scene": 12,
+        "duration": "5s",
+        "visual": "Real-time collaboration: Split screen showing Sarah's view and manager's view of same deal. Sarah adds note: 'Client requesting custom terms'. Manager instantly sees it, approves discount, adds encouragement: 'Great work on this one!'. Deal updates in real-time for both.",
+        "voiceover": "Your team moves as one. No delays, no confusion.",
+        "onScreen": "Real-Time Collaboration · Team Sync",
+        "music": "Add harmonics, team spirit",
+        "transition": "Dual screens merge"
+      },
+      {
+        "scene": 13,
+        "duration": "4s",
+        "visual": "Smart notification appears: 'Johnson Corp CFO just opened your proposal. View time: 8 minutes. Focus area: ROI section.' Sarah immediately sends a perfectly-timed follow-up email addressing ROI. Client responds within 10 minutes.",
+        "voiceover": "Know exactly when prospects engage, and what they care about.",
+        "onScreen": "Engagement Alerts · Perfect Timing",
+        "music": "Alert sound effect on notification, music swells",
+        "transition": "Notification to email sent"
+      },
+      {
+        "scene": 14,
+        "duration": "5s",
+        "visual": "Pipeline board: Visual drag-and-drop kanban of deals. Watch deals automatically move: 'Demo Scheduled' → 'Proposal Sent' → 'Negotiation' → 'Closed Won'. Revenue forecast updates in real-time at top: '$1.2M projected this month'. Probability scores adjust automatically.",
+        "voiceover": "See your entire pipeline. Forecast with confidence.",
+        "onScreen": "Visual Pipeline · $1.2M Projected",
+        "music": "Building toward climax",
+        "transition": "Deals sliding right"
+      },
+      {
+        "scene": 15,
+        "duration": "4s",
+        "visual": "Sarah on morning commute (train/car). Phone shows mobile CRM app. Push notification: 'Johnson Corp ready to sign'. She opens mobile app, reviews contract, adds final note, gets manager approval, sends to client. Deal status updates to 'Contract Sent'. All from her phone.",
+        "voiceover": "Close deals from anywhere.",
+        "onScreen": "Full Mobile Access · iOS & Android",
+        "music": "Triumphant, mobile",
+        "transition": "Phone screen to desktop view"
+      },
+      {
+        "scene": 16,
+        "duration": "5s",
+        "visual": "Back at desk, Sarah on video call with Johnson Corp. Client smiles, nods, signs digital contract on screen. Confetti animation in CRM. Deal moves to 'Closed Won' - $180K. Team Slack channel celebrates with emojis. Manager gives thumbs up from across office.",
+        "voiceover": "Johnson Corp: Closed.",
+        "onScreen": "$180,000 · Closed Won · 23% Faster Than Average",
+        "music": "Victory music, full orchestra",
+        "transition": "Confetti animation"
+      },
+      {
+        "scene": 17,
+        "duration": "4s",
+        "visual": "Dashboard analytics showing transformation: 'Response Time: 4 hours' (down from 2.3 days), 'Deals Closed: +61%', 'Team Quota: 127%', 'Revenue: $1.4M' (above target). Graphs trending sharply upward. Green checkmarks everywhere.",
+        "voiceover": "Faster responses. More deals. Happier reps.",
+        "onScreen": "Real Results · Your Team, Supercharged",
+        "music": "Energetic peak",
+        "transition": "Metrics counting up"
+      },
+      {
+        "scene": 18,
+        "duration": "3s",
+        "visual": "Same office as opening, but transformed. Sarah packing up at 5:15 PM (not 9 PM). Organized desk, closed laptop, confident smile. Waves goodbye to team. Natural sunset lighting through windows. Clean, peaceful workspace.",
+        "voiceover": "Work smarter. Live better.",
+        "onScreen": "5:15 PM · All Tasks Complete · Tomorrow's Priorities Set",
+        "music": "Gentle resolution",
+        "transition": "Follow Sarah walking out"
+      },
+      {
+        "scene": 19,
+        "duration": "4s",
+        "visual": "Final hero shot of CRM dashboard: Clean design, all deals organized, AI insights glowing, team collaboration active, pipeline healthy. Camera slowly pulls back to reveal full screen. Dashboard reflects in Sarah's satisfied smile.",
+        "voiceover": "This is sales, simplified.",
+        "onScreen": "[CRM Name] · Sales Acceleration Platform",
+        "music": "Final chord",
+        "transition": "Fade to end card"
+      },
+      {
+        "scene": 20,
+        "duration": "3s",
+        "visual": "End card: Clean white background, logo centered, text beneath: 'Start Your 14-Day Free Trial' with button. Below in smaller text: 'No Credit Card Required · Setup in 5 Minutes'. Subtle animation: button pulses gently.",
+        "voiceover": "Start your free trial today.",
+        "onScreen": "www.[CRMname].com/demo · Start Free Trial",
+        "music": "Soft, inviting outro",
+        "transition": "Fade out"
+      }
+    ],
+    "fullVoiceover": "Meet Sarah. She's an amazing sales rep. But her tools are killing her. Eight different tools. Hundreds of leads. Zero clarity. Where are the client notes? What did we discuss last time? While she's searching... competitors are closing. This isn't just Sarah's problem. It's costing the entire team. Lost deals. Missed quotas. Burned-out reps. [Pause] There's a better way. AI tells you exactly who to focus on, and when. Never miss a follow-up. Never send at the wrong time. Every conversation, every document, every insight—in one place. Your team moves as one. No delays, no confusion. Know exactly when prospects engage, and what they care about. See your entire pipeline. Forecast with confidence. Close deals from anywhere. Johnson Corp: Closed. Faster responses. More deals. Happier reps. Work smarter. Live better. This is sales, simplified. Start your free trial today.",
+    "hooks": [
+      "Your sales reps are spending 4 hours a day on admin work. Here's how to get that time back.",
+      "What if you could know exactly which leads will close before your first call?",
+      "We analyzed 10,000 lost deals. Here's the #1 reason why—and how to fix it.",
+      "Sales reps using 8+ tools close 43% fewer deals. Here's why.",
+      "The difference between hitting quota and missing it? 4 hours of response time."
+    ]
+  },
+  "metadata": {
+    "targetAudience": [
+      "Sales Directors",
+      "VP of Sales",
+      "Sales Operations Managers",
+      "B2B Sales Teams (10-500 reps)",
+      "SaaS Company Founders",
+      "Revenue Leaders"
+    ],
+    "keyFeatures": [
+      {
+        "feature": "AI Lead Scoring",
+        "benefit": "Focus on high-probability deals, ignore tire-kickers",
+        "highlight": true
+      },
+      {
+        "feature": "Automated Follow-ups",
+        "benefit": "Never lose a deal to slow response times",
+        "highlight": true
+      },
+      {
+        "feature": "360° Client View",
+        "benefit": "No more searching—all context in one place",
+        "highlight": true
+      },
+      {
+        "feature": "Real-time Collaboration",
+        "benefit": "Team works together without delays or conflicts",
+        "highlight": false
+      },
+      {
+        "feature": "Smart Engagement Alerts",
+        "benefit": "Reach out at the perfect moment when prospects are warm",
+        "highlight": false
+      },
+      {
+        "feature": "Visual Pipeline",
+        "benefit": "See pipeline health at a glance, forecast accurately",
+        "highlight": false
+      },
+      {
+        "feature": "Mobile CRM",
+        "benefit": "Close deals from anywhere, never wait until you're at desk",
+        "highlight": false
+      }
+    ],
+    "duration": "60s",
+    "platforms": ["linkedin", "website", "sales-deck", "youtube"],
+    "painPoints": [
+      "Too many disconnected tools creating chaos",
+      "Slow response times losing deals to competitors",
+      "Lack of visibility into pipeline and forecasts",
+      "Reps spending hours on admin instead of selling",
+      "Missed follow-ups and lost opportunities",
+      "Team collaboration bottlenecks",
+      "Information scattered across platforms",
+      "Burnout from working late to keep up"
+    ],
+    "callToAction": "Start Your 14-Day Free Trial",
+    "tags": [
+      "CRM",
+      "sales-automation",
+      "B2B",
+      "productivity",
+      "AI",
+      "pipeline-management",
+      "sales-acceleration",
+      "problem-reaction-solution",
+      "cinematic"
+    ],
+    "difficulty": "intermediate",
+    "estimatedCost": "medium"
+  },
+  "examples": {
+    "inspirations": [
+      {
+        "company": "Salesforce",
+        "videoTitle": "Salesforce Customer Success Stories",
+        "url": "https://www.salesforce.com/resources/videos/",
+        "whatMakesItGreat": "Shows real customer transformation with specific metrics, emotional connection to sales reps' daily struggles"
+      },
+      {
+        "company": "HubSpot",
+        "videoTitle": "Grow Better with HubSpot",
+        "url": "https://www.hubspot.com/products/get-started",
+        "whatMakesItGreat": "Clear problem-solution structure, relatable scenarios, clean UI demonstrations"
+      },
+      {
+        "company": "Pipedrive",
+        "videoTitle": "Sales CRM Built for Salespeople",
+        "url": "https://www.pipedrive.com/",
+        "whatMakesItGreat": "Rep-focused perspective, shows daily workflow, emphasizes simplicity and ease of use"
+      },
+      {
+        "company": "Close",
+        "videoTitle": "Close CRM Demo",
+        "url": "https://close.com/",
+        "whatMakesItGreat": "Fast-paced, feature-rich demo that shows power users getting work done quickly"
+      }
+    ],
+    "variations": [
+      "30-second version: Focus only on #1 pain point (missed follow-ups) and #1 solution (automation)",
+      "90-second version: Add customer testimonial in middle section, show ROI calculator, include integration showcase",
+      "Vertical (9:16) version: Optimize for Instagram/TikTok with text overlays carrying more narrative weight",
+      "Industry-specific: Create versions for Real Estate CRM, Insurance CRM, Manufacturing CRM with tailored pain points",
+      "Founder-focused: Open with founder's story of building the company after experiencing these exact problems"
+    ]
+  },
+  "technicalSpecs": {
+    "aspectRatio": "16:9",
+    "resolution": "1080p",
+    "fps": 60,
+    "colorGrading": "Teal and orange for problem sections, warm naturalistic for solution sections, high contrast throughout"
+  },
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}
