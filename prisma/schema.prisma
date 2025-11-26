@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model VideoProject {
+  id          String   @id @default(cuid())
+  userId      String   // Future: relation to User model
+  title       String
+  description String?
+
+  // Video generation params
+  type        GenerationType
+  prompt      String?
+  sourceUrl   String?  // For image-to-video or video editing
+  duration    Int?     // Requested duration in seconds
+  resolution  String?  // e.g., "1920x1080", "1280x720"
+  style       String?  // Art style, mood, etc.
+  options     Json?    // Provider-specific options
+
+  // Processing info
+  status      VideoStatus @default(PENDING)
+  provider    AIProvider?
+  providerJobId String?  // External job ID from AI provider
+
+  // Results
+  resultUrl   String?  // Final video URL
+  thumbnailUrl String? // Video thumbnail
+  errorMessage String?
+
+  // Metadata
+  estimatedCost Float?
+  actualCost    Float?
+  processingTimeMs Int?
+  metadata      Json?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  completedAt DateTime?
+
+  @@index([userId])
+  @@index([status])
+  @@index([provider])
+  @@index([createdAt])
+}
+
+enum GenerationType {
+  TEXT_TO_VIDEO
+  IMAGE_TO_VIDEO
+  VIDEO_EDITING
+  VIDEO_ENHANCEMENT
+}
+
+enum VideoStatus {
+  PENDING
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum AIProvider {
+  GOOGLE_VEO
+  OPENAI_SORA
+  RUNWAY_ML
+  REPLICATE
+  AUTO  // Automatically select best provider
+}
+
+model JobLog {
+  id          String   @id @default(cuid())
+  projectId   String
+  provider    AIProvider
+  action      String   // e.g., "submit", "check_status", "webhook_received"
+  status      String
+  request     Json?
+  response    Json?
+  error       String?
+  timestamp   DateTime @default(now())
+
+  @@index([projectId])
+  @@index([provider])
+  @@index([timestamp])
+}
