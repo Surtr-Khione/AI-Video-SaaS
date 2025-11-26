@@ -51,24 +51,63 @@ export default function UploadPage() {
     }
   }
 
-  const handleProcess = () => {
+  const handleProcess = async () => {
+    if (!selectedFile && !videoUrl) {
+      alert("Please select a video file or provide a URL")
+      return
+    }
+
     setProcessing(true)
     setUploadProgress(0)
 
-    // Simulate upload and processing
-    const interval = setInterval(() => {
-      setUploadProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval)
-          setTimeout(() => {
-            setProcessing(false)
-            alert("Video processing complete! Check your gallery to view the result.")
-          }, 1000)
-          return 100
-        }
-        return prev + 10
+    try {
+      const formData = new FormData()
+
+      if (selectedFile) {
+        formData.append("file", selectedFile)
+      } else if (videoUrl) {
+        // For URL uploads, we'd need additional backend logic
+        alert("URL upload not yet implemented. Please upload a file instead.")
+        setProcessing(false)
+        return
+      }
+
+      formData.append("options", JSON.stringify(options))
+
+      // Simulate upload progress
+      const progressInterval = setInterval(() => {
+        setUploadProgress((prev) => Math.min(prev + 10, 90))
+      }, 300)
+
+      const response = await fetch("/api/videos", {
+        method: "POST",
+        body: formData,
       })
-    }, 500)
+
+      clearInterval(progressInterval)
+      setUploadProgress(100)
+
+      const data = await response.json()
+
+      if (data.success) {
+        setTimeout(() => {
+          alert("Video uploaded successfully! Processing has started. Check your gallery to view the progress.")
+          setProcessing(false)
+          setSelectedFile(null)
+          setUploadProgress(0)
+          if (fileInputRef.current) {
+            fileInputRef.current.value = ""
+          }
+        }, 500)
+      } else {
+        throw new Error(data.error || "Upload failed")
+      }
+    } catch (error) {
+      console.error("Error uploading video:", error)
+      alert("Failed to upload video. Please try again.")
+      setProcessing(false)
+      setUploadProgress(0)
+    }
   }
 
   const transformations = [

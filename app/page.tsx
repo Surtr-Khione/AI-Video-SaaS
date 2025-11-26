@@ -1,15 +1,33 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Upload, Video, Wand2, Clock, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
-  const stats = [
-    { label: "Videos Processed", value: "0", icon: Video },
-    { label: "Processing", value: "0", icon: Clock },
-    { label: "Completed", value: "0", icon: CheckCircle },
+  const [stats, setStats] = useState({
+    total: 0,
+    processing: 0,
+    completed: 0,
+  })
+
+  useEffect(() => {
+    fetch("/api/stats")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setStats(data.stats)
+        }
+      })
+      .catch((error) => console.error("Error fetching stats:", error))
+  }, [])
+
+  const statCards = [
+    { label: "Videos Processed", value: stats.total.toString(), icon: Video },
+    { label: "Processing", value: stats.processing.toString(), icon: Clock },
+    { label: "Completed", value: stats.completed.toString(), icon: CheckCircle },
   ]
 
   const features = [
@@ -46,7 +64,7 @@ export default function HomePage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {stats.map((stat) => {
+        {statCards.map((stat) => {
           const Icon = stat.icon
           return (
             <Card key={stat.label}>

@@ -1,82 +1,84 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Download, Eye, Trash2, Search, Filter, Video, Clock, CheckCircle } from "lucide-react"
-
-// Sample data - in a real app, this would come from an API
-const sampleVideos = [
-  {
-    id: 1,
-    title: "Marketing Video - Enhanced",
-    thumbnail: "/api/placeholder/400/225",
-    duration: "2:34",
-    size: "45.2 MB",
-    format: "MP4",
-    transformation: "AI Enhancement",
-    status: "completed",
-    createdAt: "2024-01-15",
-    originalName: "marketing-video.mp4",
-  },
-  {
-    id: 2,
-    title: "Product Demo - Cropped",
-    thumbnail: "/api/placeholder/400/225",
-    duration: "1:45",
-    size: "32.8 MB",
-    format: "MP4",
-    transformation: "Smart Crop",
-    status: "completed",
-    createdAt: "2024-01-14",
-    originalName: "product-demo.mov",
-  },
-  {
-    id: 3,
-    title: "Tutorial Video - Subtitled",
-    thumbnail: "/api/placeholder/400/225",
-    duration: "5:12",
-    size: "89.5 MB",
-    format: "WebM",
-    transformation: "Auto Subtitles",
-    status: "completed",
-    createdAt: "2024-01-13",
-    originalName: "tutorial.avi",
-  },
-  {
-    id: 4,
-    title: "Interview - Processing",
-    thumbnail: "/api/placeholder/400/225",
-    duration: "3:20",
-    size: "56.1 MB",
-    format: "MP4",
-    transformation: "Background Removal",
-    status: "processing",
-    createdAt: "2024-01-15",
-    originalName: "interview.mp4",
-  },
-]
+import { Download, Eye, Trash2, Search, Video, Clock, CheckCircle, RefreshCw } from "lucide-react"
+import { Video as VideoType } from "@/types"
 
 export default function GalleryPage() {
-  const [videos] = useState(sampleVideos)
+  const [videos, setVideos] = useState<VideoType[]>([])
+  const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
   const [filterTransformation, setFilterTransformation] = useState("all")
 
+  const fetchVideos = async () => {
+    try {
+      const response = await fetch("/api/videos")
+      const data = await response.json()
+
+      if (data.success) {
+        setVideos(data.videos)
+      }
+    } catch (error) {
+      console.error("Error fetching videos:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchVideos()
+
+    // Poll for updates every 5 seconds if there are processing videos
+    const interval = setInterval(() => {
+      const hasProcessing = videos.some((v) => v.status === "processing")
+      if (hasProcessing) {
+        fetchVideos()
+      }
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [videos])
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this video?")) {
+      return
+    }
+
+    try {
+      const response = await fetch(`/api/videos/${id}`, {
+        method: "DELETE",
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setVideos(videos.filter((v) => v.id !== id))
+      } else {
+        alert("Failed to delete video")
+      }
+    } catch (error) {
+      console.error("Error deleting video:", error)
+      alert("Failed to delete video")
+    }
+  }
+
   const filteredVideos = videos.filter((video) => {
-    const matchesSearch = video.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      video.originalName.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchesSearch = video.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      video.originalName?.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesStatus = filterStatus === "all" || video.status === filterStatus
     const matchesTransformation = filterTransformation === "all" ||
-      video.transformation.toLowerCase().includes(filterTransformation.toLowerCase())
+      video.transformation?.toLowerCase().includes(filterTransformation.toLowerCase())
 
     return matchesSearch && matchesStatus && matchesTransformation
   })
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status: string, progress?: number) => {
     if (status === "completed") {
       return (
         <Badge variant="default" className="bg-green-500">
@@ -87,8 +89,14 @@ export default function GalleryPage() {
     } else if (status === "processing") {
       return (
         <Badge variant="secondary">
-          <Clock className="h-3 w-3 mr-1" />
-          Processing
+          <Clock className="h-3 w-3 mr-1 animate-spin" />
+          Processing {progress ? `${Math.round(progress)}%` : ""}
+        </Badge>
+      )
+    } else if (status === "failed") {
+      return (
+        <Badge variant="destructive">
+          Failed
         </Badge>
       )
     }
@@ -97,11 +105,17 @@ export default function GalleryPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">Video Gallery</h1>
-        <p className="text-muted-foreground text-lg">
-          Browse and manage your processed videos
-        </p>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-4xl font-bold mb-2">Video Gallery</h1>
+          <p className="text-muted-foreground text-lg">
+            Browse and manage your processed videos
+          </p>
+        </div>
+        <Button onClick={fetchVideos} variant="outline" size="sm">
+          <RefreshCw className="h-4 w-4 mr-2" />
+          Refresh
+        </Button>
       </div>
 
       {/* Filters */}
@@ -205,7 +219,7 @@ export default function GalleryPage() {
                   <Video className="h-16 w-16 text-primary/40" />
                 </div>
                 <div className="absolute top-2 right-2">
-                  {getStatusBadge(video.status)}
+                  {getStatusBadge(video.status, video.progress)}
                 </div>
                 <div className="absolute bottom-2 right-2">
                   <Badge variant="secondary" className="bg-black/75 text-white">
@@ -235,8 +249,18 @@ export default function GalleryPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Created:</span>
-                    <span className="font-medium">{video.createdAt}</span>
+                    <span className="font-medium">{new Date(video.createdAt).toLocaleDateString()}</span>
                   </div>
+                  {video.status === "processing" && video.progress !== undefined && (
+                    <div className="mt-2">
+                      <div className="w-full bg-secondary rounded-full h-2">
+                        <div
+                          className="bg-primary h-2 rounded-full transition-all duration-300"
+                          style={{ width: `${video.progress}%` }}
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
               <CardFooter className="gap-2">
@@ -262,6 +286,7 @@ export default function GalleryPage() {
                   variant="outline"
                   size="sm"
                   className="text-destructive hover:text-destructive"
+                  onClick={() => handleDelete(video.id)}
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
