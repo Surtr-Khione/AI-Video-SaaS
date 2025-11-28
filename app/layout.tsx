@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
+import { ToastProvider } from "@/components/toast-provider"
 
 export const metadata: Metadata = {
   title: "AI Video Studio - Transform Your Videos with AI",
@@ -15,10 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <ToastProvider>
+          <Navigation />
+          <main className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+            {children}
+          </main>
+        </ToastProvider>
       </body>
     </html>
   )

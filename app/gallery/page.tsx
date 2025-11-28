@@ -6,28 +6,41 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Download, Eye, Trash2, Search, Video, Clock, CheckCircle, RefreshCw } from "lucide-react"
+import { Download, Eye, Trash2, Search, Video, Clock, CheckCircle, RefreshCw, AlertCircle, Upload } from "lucide-react"
 import { Video as VideoType } from "@/types"
+import { useToast } from "@/components/toast-provider"
+import { VideoCardSkeleton } from "@/components/ui/skeleton"
+import { EmptyState } from "@/components/ui/empty-state"
+import Link from "next/link"
 
 export default function GalleryPage() {
   const [videos, setVideos] = useState<VideoType[]>([])
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
   const [filterTransformation, setFilterTransformation] = useState("all")
+  const { showToast } = useToast()
 
-  const fetchVideos = async () => {
+  const fetchVideos = async (showRefreshToast = false) => {
     try {
+      if (showRefreshToast) setRefreshing(true)
+
       const response = await fetch("/api/videos")
       const data = await response.json()
 
       if (data.success) {
         setVideos(data.videos)
+        if (showRefreshToast) {
+          showToast("Gallery refreshed", "success", 2000)
+        }
       }
     } catch (error) {
       console.error("Error fetching videos:", error)
+      showToast("Failed to load videos", "error")
     } finally {
       setLoading(false)
+      setRefreshing(false)
     }
   }
 
@@ -45,8 +58,11 @@ export default function GalleryPage() {
     return () => clearInterval(interval)
   }, [videos])
 
-  const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this video?")) {
+  const handleDelete = async (id: string, videoName: string) => {
+    // Custom confirmation using toast
+    const confirmDelete = window.confirm(`Delete "${videoName}"? This action cannot be undone.`)
+
+    if (!confirmDelete) {
       return
     }
 
@@ -59,12 +75,13 @@ export default function GalleryPage() {
 
       if (data.success) {
         setVideos(videos.filter((v) => v.id !== id))
+        showToast("Video deleted successfully", "success")
       } else {
-        alert("Failed to delete video")
+        showToast("Failed to delete video", "error")
       }
     } catch (error) {
       console.error("Error deleting video:", error)
-      alert("Failed to delete video")
+      showToast("Failed to delete video", "error")
     }
   }
 
@@ -112,8 +129,13 @@ export default function GalleryPage() {
             Browse and manage your processed videos
           </p>
         </div>
-        <Button onClick={fetchVideos} variant="outline" size="sm">
-          <RefreshCw className="h-4 w-4 mr-2" />
+        <Button
+          onClick={() => fetchVideos(true)}
+          variant="outline"
+          size="sm"
+          disabled={refreshing}
+        >
+          <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
           Refresh
         </Button>
       </div>
@@ -195,21 +217,32 @@ export default function GalleryPage() {
       </div>
 
       {/* Video Grid */}
-      {filteredVideos.length === 0 ? (
-        <Card>
-          <CardContent className="pt-12 pb-12 text-center">
-            <Video className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-            <h3 className="text-lg font-semibold mb-2">No videos found</h3>
-            <p className="text-muted-foreground mb-4">
-              {searchQuery || filterStatus !== "all" || filterTransformation !== "all"
-                ? "Try adjusting your filters"
-                : "Upload your first video to get started"}
-            </p>
-            {!searchQuery && filterStatus === "all" && filterTransformation === "all" && (
-              <Button>Upload Video</Button>
-            )}
-          </CardContent>
-        </Card>
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <VideoCardSkeleton key={i} />
+          ))}
+        </div>
+      ) : filteredVideos.length === 0 ? (
+        <EmptyState
+          icon={searchQuery || filterStatus !== "all" || filterTransformation !== "all" ? <Search className="h-16 w-16" /> : <Video className="h-16 w-16" />}
+          title={searchQuery || filterStatus !== "all" || filterTransformation !== "all" ? "No videos found" : "No videos yet"}
+          description={
+            searchQuery || filterStatus !== "all" || filterTransformation !== "all"
+              ? "Try adjusting your search or filter settings"
+              : "Upload your first video to get started with AI transformations"
+          }
+          action={
+            !searchQuery && filterStatus === "all" && filterTransformation === "all" ? (
+              <Link href="/upload">
+                <Button size="lg">
+                  <Upload className="mr-2 h-4 w-4" />
+                  Upload Your First Video
+                </Button>
+              </Link>
+            ) : undefined
+          }
+        />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredVideos.map((video) => (
@@ -285,8 +318,9 @@ export default function GalleryPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="text-destructive hover:text-destructive"
-                  onClick={() => handleDelete(video.id)}
+                  className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                  onClick={() => handleDelete(video.id, video.title)}
+                  title="Delete video"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>

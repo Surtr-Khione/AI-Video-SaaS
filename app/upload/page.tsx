@@ -6,15 +6,21 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Upload, Video, X, Wand2, Loader2 } from "lucide-react"
+import { Upload, Video, X, Wand2, Loader2, FileVideo, Info, CheckCircle2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { Progress } from "@/components/ui/progress"
+import { useToast } from "@/components/toast-provider"
+import { useRouter } from "next/navigation"
 
 export default function UploadPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [videoUrl, setVideoUrl] = useState("")
   const [processing, setProcessing] = useState(false)
   const [uploadProgress, setUploadProgress] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const { showToast } = useToast()
+  const router = useRouter()
 
   const [options, setOptions] = useState({
     transformation: "enhance",
@@ -25,23 +31,39 @@ export default function UploadPage() {
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if (file && file.type.startsWith("video/")) {
-      setSelectedFile(file)
-      setVideoUrl("")
+    if (file) {
+      if (file.type.startsWith("video/")) {
+        setSelectedFile(file)
+        setVideoUrl("")
+        showToast(`Selected: ${file.name}`, "success", 3000)
+      } else {
+        showToast("Please select a valid video file", "error")
+      }
     }
   }
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
+    setIsDragging(false)
     const file = e.dataTransfer.files[0]
-    if (file && file.type.startsWith("video/")) {
-      setSelectedFile(file)
-      setVideoUrl("")
+    if (file) {
+      if (file.type.startsWith("video/")) {
+        setSelectedFile(file)
+        setVideoUrl("")
+        showToast(`Selected: ${file.name}`, "success", 3000)
+      } else {
+        showToast("Please select a valid video file", "error")
+      }
     }
   }
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
+    setIsDragging(true)
+  }
+
+  const handleDragLeave = () => {
+    setIsDragging(false)
   }
 
   const removeFile = () => {
@@ -53,12 +75,13 @@ export default function UploadPage() {
 
   const handleProcess = async () => {
     if (!selectedFile && !videoUrl) {
-      alert("Please select a video file or provide a URL")
+      showToast("Please select a video file or provide a URL", "warning")
       return
     }
 
     setProcessing(true)
     setUploadProgress(0)
+    showToast("Starting upload...", "info", 2000)
 
     try {
       const formData = new FormData()
@@ -66,8 +89,7 @@ export default function UploadPage() {
       if (selectedFile) {
         formData.append("file", selectedFile)
       } else if (videoUrl) {
-        // For URL uploads, we'd need additional backend logic
-        alert("URL upload not yet implemented. Please upload a file instead.")
+        showToast("URL upload not yet implemented. Please upload a file instead.", "warning")
         setProcessing(false)
         return
       }
@@ -91,20 +113,24 @@ export default function UploadPage() {
 
       if (data.success) {
         setTimeout(() => {
-          alert("Video uploaded successfully! Processing has started. Check your gallery to view the progress.")
+          showToast("Video uploaded successfully! Processing started.", "success")
           setProcessing(false)
           setSelectedFile(null)
           setUploadProgress(0)
           if (fileInputRef.current) {
             fileInputRef.current.value = ""
           }
+          // Redirect to gallery after 1 second
+          setTimeout(() => {
+            router.push("/gallery")
+          }, 1000)
         }, 500)
       } else {
         throw new Error(data.error || "Upload failed")
       }
     } catch (error) {
       console.error("Error uploading video:", error)
-      alert("Failed to upload video. Please try again.")
+      showToast("Failed to upload video. Please try again.", "error")
       setProcessing(false)
       setUploadProgress(0)
     }
@@ -143,12 +169,19 @@ export default function UploadPage() {
                 <div
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-12 text-center cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                  className={`border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-all duration-200 ${
+                    isDragging
+                      ? "border-primary bg-primary/10 scale-105"
+                      : "border-muted-foreground/25 hover:border-primary/50 hover:bg-primary/5"
+                  }`}
                 >
-                  <Upload className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                  <Upload className={`h-12 w-12 mx-auto mb-4 transition-colors ${
+                    isDragging ? "text-primary animate-bounce" : "text-muted-foreground"
+                  }`} />
                   <p className="text-sm font-medium mb-2">
-                    Click to upload or drag and drop
+                    {isDragging ? "Drop your video here" : "Click to upload or drag and drop"}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     MP4, MOV, AVI, WebM (max 500MB)
@@ -162,13 +195,13 @@ export default function UploadPage() {
                   />
                 </div>
               ) : (
-                <div className="border border-border rounded-lg p-4 flex items-center justify-between">
+                <div className="border-2 border-primary/50 bg-primary/5 rounded-lg p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-primary/10 rounded">
-                      <Video className="h-6 w-6 text-primary" />
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <FileVideo className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">{selectedFile.name}</p>
+                      <p className="font-medium text-sm">{selectedFile.name}</p>
                       <p className="text-sm text-muted-foreground">
                         {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
                       </p>
@@ -303,31 +336,36 @@ export default function UploadPage() {
             <CardContent className="pt-6">
               {processing ? (
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium">Processing...</span>
-                    <span className="text-muted-foreground">{uploadProgress}%</span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                      <span className="font-medium text-sm">Uploading...</span>
+                    </div>
+                    <span className="text-sm font-bold text-primary">{Math.round(uploadProgress)}%</span>
                   </div>
-                  <div className="w-full bg-secondary rounded-full h-2">
-                    <div
-                      className="bg-primary h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${uploadProgress}%` }}
-                    />
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>Applying AI transformations...</span>
+                  <Progress value={uploadProgress} max={100} />
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/50 p-3 rounded-lg">
+                    <Info className="h-3.5 w-3.5" />
+                    <span>Processing will start automatically after upload completes</span>
                   </div>
                 </div>
               ) : (
-                <Button
-                  size="lg"
-                  className="w-full"
-                  disabled={!selectedFile && !videoUrl}
-                  onClick={handleProcess}
-                >
-                  <Wand2 className="mr-2 h-4 w-4" />
-                  Start Processing
-                </Button>
+                <div className="space-y-3">
+                  <Button
+                    size="lg"
+                    className="w-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
+                    disabled={!selectedFile && !videoUrl}
+                    onClick={handleProcess}
+                  >
+                    <Wand2 className="mr-2 h-5 w-5" />
+                    Start AI Processing
+                  </Button>
+                  {(!selectedFile && !videoUrl) && (
+                    <p className="text-xs text-center text-muted-foreground">
+                      Select a video file to begin
+                    </p>
+                  )}
+                </div>
               )}
             </CardContent>
           </Card>
