@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
-import { Track, Clip, MediaAsset, TimelineState, ClipType } from '@/types/timeline';
+import { Track, Clip, MediaAsset, TimelineState, ClipType, Marker, ExportJob } from '@/types/timeline';
 
 interface TimelineStore extends TimelineState {
   // Media Library
@@ -37,6 +37,16 @@ interface TimelineStore extends TimelineState {
   toggleSnapToGrid: () => void;
   setGridSize: (size: number) => void;
 
+  // Markers
+  addMarker: (marker: Marker) => void;
+  removeMarker: (markerId: string) => void;
+  updateMarker: (markerId: string, updates: Partial<Marker>) => void;
+
+  // Export
+  addExportJob: (job: ExportJob) => void;
+  updateExportJob: (jobId: string, updates: Partial<ExportJob>) => void;
+  removeExportJob: (jobId: string) => void;
+
   // Utility
   getClipById: (clipId: string) => Clip | undefined;
   getTrackById: (trackId: string) => Track | undefined;
@@ -69,6 +79,10 @@ export const useTimelineStore = create<TimelineStore>((set, get) => ({
   playing: false,
   snapToGrid: true,
   gridSize: 0.5,
+  markers: [],
+  exportJobs: [],
+  selectedEffectPresets: [],
+  selectedTransitionPresets: [],
 
   // Media Library
   addMediaAsset: (asset) => {
@@ -304,5 +318,47 @@ export const useTimelineStore = create<TimelineStore>((set, get) => ({
       });
     });
     return Math.max(maxDuration, 60);
+  },
+
+  // Markers
+  addMarker: (marker) => {
+    set((state) => ({
+      markers: [...state.markers, marker],
+    }));
+  },
+
+  removeMarker: (markerId) => {
+    set((state) => ({
+      markers: state.markers.filter((m) => m.id !== markerId),
+    }));
+  },
+
+  updateMarker: (markerId, updates) => {
+    set((state) => ({
+      markers: state.markers.map((m) =>
+        m.id === markerId ? { ...m, ...updates } : m
+      ),
+    }));
+  },
+
+  // Export
+  addExportJob: (job) => {
+    set((state) => ({
+      exportJobs: [...state.exportJobs, job],
+    }));
+  },
+
+  updateExportJob: (jobId, updates) => {
+    set((state) => ({
+      exportJobs: state.exportJobs.map((j) =>
+        j.id === jobId ? { ...j, ...updates } : j
+      ),
+    }));
+  },
+
+  removeExportJob: (jobId) => {
+    set((state) => ({
+      exportJobs: state.exportJobs.filter((j) => j.id !== jobId),
+    }));
   },
 }));
