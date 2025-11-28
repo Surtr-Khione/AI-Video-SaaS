@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ai-video-postgres
+    environment:
+      POSTGRES_USER: aiuser
+      POSTGRES_PASSWORD: aipassword
+      POSTGRES_DB: ai_video_saas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aiuser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: ai-video-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-video-app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://aiuser:aipassword@postgres:5432/ai_video_saas?schema=public"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      NODE_ENV: production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./uploads:/app/uploads
+      - ./output:/app/output
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: ai-video-worker
+    environment:
+      DATABASE_URL: "postgresql://aiuser:aipassword@postgres:5432/ai_video_saas?schema=public"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MAX_CONCURRENT_JOBS: 3
+      NODE_ENV: production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./uploads:/app/uploads
+      - ./output:/app/output
+
+volumes:
+  postgres_data:
+  redis_data:

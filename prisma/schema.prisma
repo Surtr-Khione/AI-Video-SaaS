@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model VideoProject {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  templateId  String?
+  status      ProjectStatus @default(PENDING)
+  totalJobs   Int         @default(0)
+  completedJobs Int       @default(0)
+  failedJobs  Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  jobs        VideoJob[]
+  template    Template?   @relation(fields: [templateId], references: [id])
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model VideoJob {
+  id          String      @id @default(cuid())
+  projectId   String
+  status      JobStatus   @default(PENDING)
+  priority    Int         @default(0)
+
+  // Input data for video generation
+  data        Json
+
+  // Processing information
+  progress    Float       @default(0)
+  error       String?
+  retries     Int         @default(0)
+  maxRetries  Int         @default(3)
+
+  // Output information
+  outputUrl   String?
+  outputPath  String?
+  duration    Float?
+  fileSize    Int?
+
+  // Timestamps
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  startedAt   DateTime?
+  completedAt DateTime?
+
+  project     VideoProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([status])
+  @@index([priority])
+}
+
+model Template {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+
+  // Template configuration
+  config      Json
+
+  // Template metadata
+  duration    Float?
+  resolution  String?     // e.g., "1920x1080"
+  format      String      @default("mp4")
+
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  projects    VideoProject[]
+
+  @@index([createdAt])
+}
+
+enum ProjectStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum JobStatus {
+  PENDING
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
