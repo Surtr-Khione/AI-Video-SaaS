@@ -1,0 +1,188 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Viral Marketing Fields
+  referralCode       String          @unique @default(cuid())
+  referredById       String?
+  referredBy         User?           @relation("Referrals", fields: [referredById], references: [id])
+  referrals          User[]          @relation("Referrals")
+  credits            Int             @default(0)
+  tier               String          @default("free") // free, bronze, silver, gold, platinum
+  viralScore         Int             @default(0)
+  lastViralAction    DateTime?
+  totalReferrals     Int             @default(0)
+  activeReferrals    Int             @default(0)
+  conversionRate     Float           @default(0)
+  hasUnlockedPremium Boolean         @default(false)
+
+  accounts           Account[]
+  sessions           Session[]
+  rewards            Reward[]
+  sentInvites        Invite[]
+  viralActions       ViralAction[]
+  achievements       UserAchievement[]
+  shares             Share[]
+
+  @@index([referralCode])
+  @@index([referredById])
+  @@index([viralScore])
+}
+
+model Invite {
+  id           String   @id @default(cuid())
+  email        String
+  senderId     String
+  sender       User     @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  status       String   @default("pending") // pending, accepted, expired
+  createdAt    DateTime @default(now())
+  acceptedAt   DateTime?
+  expiresAt    DateTime
+  reminderSent Boolean  @default(false)
+
+  @@index([email])
+  @@index([senderId])
+  @@index([status])
+}
+
+model Reward {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String   // referral_signup, referral_conversion, milestone, achievement, share
+  credits     Int
+  description String
+  createdAt   DateTime @default(now())
+  claimed     Boolean  @default(true)
+
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model ViralAction {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // share, invite, referral_signup, referral_active
+  platform  String?  // twitter, facebook, linkedin, email, whatsapp
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String
+  icon        String
+  requirement Int      // number of referrals or actions needed
+  type        String   // referral_count, viral_score, share_count
+  credits     Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  users UserAchievement[]
+
+  @@index([type])
+}
+
+model UserAchievement {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievementId String
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  unlockedAt    DateTime    @default(now())
+  claimed       Boolean     @default(false)
+
+  @@unique([userId, achievementId])
+  @@index([userId])
+}
+
+model Share {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  platform  String   // twitter, facebook, linkedin, whatsapp, copy
+  url       String
+  clicks    Int      @default(0)
+  signups   Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([platform])
+  @@index([createdAt])
+}
+
+model ViralCoefficient {
+  id                String   @id @default(cuid())
+  date              DateTime @unique @default(now())
+  totalUsers        Int
+  newUsers          Int
+  referredUsers     Int
+  coefficient       Float
+  k_factor          Float    // viral coefficient (invites per user * conversion rate)
+  invitesPerUser    Float
+  conversionRate    Float
+  activeReferrers   Int
+  topReferrerId     String?
+  topReferrerCount  Int      @default(0)
+
+  @@index([date])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
