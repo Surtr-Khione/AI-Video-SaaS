@@ -69,7 +69,7 @@ export async function authenticateApiKey(
 
 export function optionalAuth(
   req: AuthRequest,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ): void {
   const authHeader = req.headers['authorization'];

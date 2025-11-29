@@ -98,7 +98,7 @@ router.post('/training/export', authenticateToken, async (req: AuthRequest, res:
   }
 });
 
-router.get('/training/insights', authenticateToken, async (req: AuthRequest, res: Response) => {
+router.get('/training/insights', authenticateToken, async (_req: AuthRequest, res: Response) => {
   try {
     const insights = await trainingDataService.getTrainingInsights();
     res.json(insights);

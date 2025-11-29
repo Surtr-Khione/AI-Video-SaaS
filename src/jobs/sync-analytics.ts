@@ -96,15 +96,15 @@ export async function updateSystemMetrics(): Promise<void> {
     ]);
 
     const totalEngagements = engagementMetrics.reduce(
-      (sum, m) => sum + m.totalLikes + m.totalComments + m.totalShares,
+      (sum: number, m: any) => sum + m.totalLikes + m.totalComments + m.totalShares,
       0
     );
 
     const avgEngagementRate = engagementMetrics.length > 0
-      ? engagementMetrics.reduce((sum, m) => sum + m.engagementScore, 0) / engagementMetrics.length
+      ? engagementMetrics.reduce((sum: number, m: any) => sum + m.engagementScore, 0) / engagementMetrics.length
       : 0;
 
-    const platformBreakdown = engagementMetrics.reduce((acc, m) => {
+    const platformBreakdown = engagementMetrics.reduce((acc: any, m: any) => {
       if (!acc[m.platform]) {
         acc[m.platform] = {
           views: 0,
