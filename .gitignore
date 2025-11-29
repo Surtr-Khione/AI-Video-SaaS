@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+*.log
+.DS_Store
+coverage
+.prisma
+/var/videos
+/var/training-data
+*.mp4
+*.mov
+*.avi
+.vscode
+.idea
