@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-push quality checks..."
+
+# Run full quality check before push
+npm run quality:check
+
+# Run debug analyzer
+echo ""
+echo "🔍 Analyzing for debug statements..."
+npm run debug:analyze
+
+echo ""
+echo "✓ Pre-push checks complete!"
