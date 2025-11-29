@@ -1,0 +1,28 @@
+name: Claude AI Assistant
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+  issue_comment:
+    types: [created, edited]
+  pull_request:
+    types: [opened, edited, labeled, synchronize]
+  pull_request_review_comment:
+    types: [created, edited]
+
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Claude AI Response
+        uses: anthropics/claude-github-app@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
