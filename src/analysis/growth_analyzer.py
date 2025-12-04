@@ -62,10 +62,19 @@ class GrowthAnalyzer:
         if not episodes or len(episodes) < 2:
             return {"frequency": "unknown", "consistency": 0, "recent_acceleration": False}
 
-        # Sort episodes by date
+        # Sort episodes by date (filter out episodes with None or 0 dates)
+        valid_episodes = []
+        for ep in episodes:
+            date = ep.get("datePublished") or ep.get("pub_date_ms")
+            if date and date > 0:
+                valid_episodes.append(ep)
+
+        if not valid_episodes:
+            return {"frequency": "unknown", "consistency": 0, "recent_acceleration": False}
+
         sorted_episodes = sorted(
-            [ep for ep in episodes if "datePublished" in ep or "pub_date_ms" in ep],
-            key=lambda x: x.get("datePublished", x.get("pub_date_ms", 0)),
+            valid_episodes,
+            key=lambda x: x.get("datePublished") or x.get("pub_date_ms", 0),
             reverse=True
         )
 
