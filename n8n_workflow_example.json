@@ -1,0 +1,216 @@
+{
+  "name": "Airtable Scraper Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start-node",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:5000/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "your-secret-api-key"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "https://airtable.com/appk7qdCSlKGMnWbM/shrCf8aQnC4ke06ks/tblwo1OgfwmbaAyBT"
+            },
+            {
+              "name": "method",
+              "value": "selenium"
+            },
+            {
+              "name": "recent_days",
+              "value": 30
+            },
+            {
+              "name": "headless",
+              "value": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "http-request-node",
+      "name": "Scrape Airtable (API)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [450, 300],
+      "notes": "Calls the Flask API to scrape Airtable"
+    },
+    {
+      "parameters": {
+        "command": "python3 /path/to/scrape_airtable_n8n.py",
+        "additionalFields": {
+          "env": {
+            "envVars": [
+              {
+                "name": "AIRTABLE_URL",
+                "value": "https://airtable.com/appk7qdCSlKGMnWbM/shrCf8aQnC4ke06ks/tblwo1OgfwmbaAyBT"
+              },
+              {
+                "name": "SCRAPE_METHOD",
+                "value": "selenium"
+              },
+              {
+                "name": "HEADLESS",
+                "value": "true"
+              },
+              {
+                "name": "RECENT_DAYS",
+                "value": "30"
+              }
+            ]
+          }
+        }
+      },
+      "id": "execute-command-node",
+      "name": "Scrape Airtable (Direct)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 500],
+      "notes": "Directly executes the Python script"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract the data array from scraper response\nconst response = $input.item.json;\n\nif (response.success) {\n  // Return each row as a separate item for further processing\n  return response.data.map(row => ({\n    json: row\n  }));\n} else {\n  throw new Error(`Scraping failed: ${response.error}`);\n}"
+      },
+      "id": "code-node",
+      "name": "Process Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300],
+      "notes": "Splits the data array into individual items"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appYourBaseId",
+          "mode": "list"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblYourTableId",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "airtable-node",
+      "name": "Save to Another Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [850, 300],
+      "notes": "Optional: Save scraped data to another Airtable table"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "your-google-sheet-id",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData"
+        },
+        "options": {}
+      },
+      "id": "google-sheets-node",
+      "name": "Save to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [850, 500],
+      "notes": "Optional: Save scraped data to Google Sheets"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.success}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-node",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 400],
+      "notes": "Verifies scraping was successful"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Scrape Airtable (API)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Airtable (API)": {
+      "main": [
+        [
+          {
+            "node": "Process Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Results": {
+      "main": [
+        [
+          {
+            "node": "Save to Another Airtable",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

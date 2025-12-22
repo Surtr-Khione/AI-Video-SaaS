@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  airtable-scraper:
+    build: .
+    container_name: airtable-scraper
+    ports:
+      - "5000:5000"
+    environment:
+      # API Configuration
+      - API_KEY=your-secret-api-key
+      - PORT=5000
+      - DEBUG=false
+
+      # Airtable Configuration
+      - AIRTABLE_URL=https://airtable.com/appk7qdCSlKGMnWbM/shrCf8aQnC4ke06ks/tblwo1OgfwmbaAyBT
+      - AIRTABLE_API_KEY=${AIRTABLE_API_KEY}
+
+      # Scraper Configuration
+      - SCRAPE_METHOD=selenium
+      - HEADLESS=true
+      - RECENT_DAYS=30
+      - DATE_FIELD=createdTime
+
+    # For Selenium to work in Docker
+    shm_size: '2gb'
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Run n8n alongside the scraper
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=changeme
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n_workflow_example.json:/home/node/.n8n/workflows/airtable_scraper.json:ro
+    restart: unless-stopped
+    depends_on:
+      - airtable-scraper
+
+volumes:
+  n8n_data:

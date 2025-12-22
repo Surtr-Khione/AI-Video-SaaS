@@ -13,6 +13,10 @@ requests>=2.31.0
 # Data handling
 pandas>=2.1.0
 
+# API Server (for n8n integration)
+flask>=3.0.0
+flask-cors>=4.0.0
+
 # Optional: For advanced scraping
 # playwright>=1.40.0
 # beautifulsoup4>=4.12.0
