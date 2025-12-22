@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: Dockerfile.n8n
+    container_name: n8n-with-scraper
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      # n8n settings
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=changeme
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+
+      # Webhook URL (change to your domain)
+      - WEBHOOK_URL=http://localhost:5678/
+
+      # Timezone
+      - GENERIC_TIMEZONE=America/New_York
+
+      # Scraper defaults (optional - can override in workflows)
+      - AIRTABLE_URL=https://airtable.com/appk7qdCSlKGMnWbM/shrCf8aQnC4ke06ks/tblwo1OgfwmbaAyBT
+      - HEADLESS=true
+
+    volumes:
+      # Persist n8n data
+      - n8n_data:/home/node/.n8n
+
+      # Mount scraper code (for easy updates without rebuilding)
+      - ./scrape_airtable_n8n.py:/opt/AI-Video-SaaS/scrape_airtable_n8n.py:ro
+
+    # Resource limits (adjust based on your server)
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+
+volumes:
+  n8n_data:
+    driver: local

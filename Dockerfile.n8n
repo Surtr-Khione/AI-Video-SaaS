@@ -1,0 +1,37 @@
+# Custom n8n image with Airtable scraper built-in
+FROM n8nio/n8n:latest
+
+USER root
+
+# Install system dependencies
+RUN apk add --no-cache \
+    chromium \
+    chromium-chromedriver \
+    python3 \
+    py3-pip \
+    git
+
+# Install Python packages
+RUN pip3 install --no-cache-dir \
+    selenium \
+    requests \
+    flask \
+    flask-cors \
+    pandas
+
+# Clone the scraper repo
+RUN cd /opt && \
+    git clone https://github.com/Surtr-Khione/AI-Video-SaaS.git && \
+    chmod +x /opt/AI-Video-SaaS/scrape_airtable_n8n.py
+
+# Set environment for Chrome
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_DRIVER=/usr/bin/chromedriver
+
+USER node
+
+# Expose n8n port
+EXPOSE 5678
+
+# Start n8n
+CMD ["n8n"]
