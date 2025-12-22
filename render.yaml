@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: airtable-scraper-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: API_KEY
+        generateValue: true
+      - key: AIRTABLE_URL
+        value: https://airtable.com/appk7qdCSlKGMnWbM/shrCf8aQnC4ke06ks/tblwo1OgfwmbaAyBT
+      - key: PORT
+        value: 5000
+      - key: HEADLESS
+        value: true
