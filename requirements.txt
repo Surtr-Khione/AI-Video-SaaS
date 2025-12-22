@@ -1,0 +1,18 @@
+# Airtable Scraper Dependencies
+
+# Web scraping with Selenium
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+
+# Airtable API (optional, for API-based scraping)
+pyairtable>=2.1.0
+
+# HTTP requests (for direct API calls)
+requests>=2.31.0
+
+# Data handling
+pandas>=2.1.0
+
+# Optional: For advanced scraping
+# playwright>=1.40.0
+# beautifulsoup4>=4.12.0
